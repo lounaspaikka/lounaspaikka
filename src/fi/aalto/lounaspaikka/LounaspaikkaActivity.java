@@ -1,5 +1,11 @@
 package fi.aalto.lounaspaikka;
 
+
+
+import java.util.ArrayList;
+
+import fi.aalto.lounaspaikka.JsonRetrievalAndTransform.RetrivedDataAndGenerateObject;
+import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -11,9 +17,11 @@ public class LounaspaikkaActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
- jsonretrive json = new jsonretrive(); 
-	json.fetchdata();
-	
-	}
+		RetrivedDataAndGenerateObject data = new  RetrivedDataAndGenerateObject();
+		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+		restaurants=data.getrestaurantarray();
 
+	}
 }
+
+
