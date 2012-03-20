@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import fi.aalto.lounaspaikka.objectfiles.Hoursday;
+import fi.aalto.lounaspaikka.objectfiles.Meal;
 import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 
 
@@ -49,7 +50,7 @@ public class jsontoobjects
 
 			jsonobject = jsonobject.getAsJsonObject().get("result")
 					.getAsJsonObject();   //moving object near to campusa array
-
+			String updated =  jsonobject.get("updated").getAsString();
 			int numberOfcampuses= jsonobject.getAsJsonArray("campus").size();
 			int campuscounter=0;
 			String campus="";
@@ -68,6 +69,7 @@ public class jsontoobjects
 					restaurant.url=restaurantobject.get("url").getAsString();
 					restaurant.info=restaurantobject.get("info").getAsString();
 					restaurant.campus=campus;
+					restaurant.updated=updated;
 					JsonObject locationobject = campusobject.getAsJsonArray("restaurant").get(restaurantcounter).getAsJsonObject().get("location").getAsJsonObject();
 					restaurant.location.address=locationobject.get("address").getAsString();
 					restaurant.location.lat=locationobject.get("lat").getAsString();
@@ -123,20 +125,22 @@ public class jsontoobjects
 		int count=0;
 		while (meals>count)
 		{
+			Meal meal = new Meal();
+			meal.meal= menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString();
 			if (day.equals("monday")){
-				restaurant.weeksmenu.monday.daysmenu.add( menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString());
+				restaurant.weeksmenu.monday.daysmenu.add(meal);
 			} else if (day.equals("tuesday")){
-				restaurant.weeksmenu.tuesday.daysmenu.add( menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString());
+				restaurant.weeksmenu.tuesday.daysmenu.add(meal);
 			} else if (day.equals("wednesday")){
-				restaurant.weeksmenu.wednesday.daysmenu.add( menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString());
+				restaurant.weeksmenu.wednesday.daysmenu.add(meal);
 			} else if (day.equals("thursday")){
-				restaurant.weeksmenu.thursday.daysmenu.add( menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString());
+				restaurant.weeksmenu.thursday.daysmenu.add( meal);
 			} else if (day.equals("friday")){
-				restaurant.weeksmenu.friday.daysmenu.add( menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString());
+				restaurant.weeksmenu.friday.daysmenu.add( meal);
 			}else if (day.equals("saturday")){
-				restaurant.weeksmenu.saturday.daysmenu.add( menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString());
+				restaurant.weeksmenu.saturday.daysmenu.add( meal);
 			} else if (day.equals("sunday")){
-				restaurant.weeksmenu.sunday.daysmenu.add( menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString());
+				restaurant.weeksmenu.sunday.daysmenu.add( meal);
 			}
 			count++;
 

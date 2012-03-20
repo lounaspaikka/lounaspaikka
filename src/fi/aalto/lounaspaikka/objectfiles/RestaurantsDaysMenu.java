@@ -11,5 +11,5 @@ import java.util.ArrayList;
  */
 public class RestaurantsDaysMenu 
 {
-public ArrayList<String> daysmenu = new ArrayList<String>();
+public ArrayList<Meal> daysmenu = new ArrayList<Meal>();
 }

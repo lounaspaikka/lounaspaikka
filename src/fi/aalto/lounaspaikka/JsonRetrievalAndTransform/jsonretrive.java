@@ -34,7 +34,7 @@ public class jsonretrive {
 	private String Jsonfromurl() throws UnsupportedEncodingException, IOException 
 	{
 		/**
-		 * pulls data from lounasaika.net´s api. to string.
+		 * pulls data from lounasaika.net's api. to string.
 		 * 
 		 * 
 		 */
