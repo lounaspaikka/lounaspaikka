@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/background">
+    <!--  
+    <ImageButton
+    android:id="@+id/image_restaurants"
+    android:layout_width="100dip"
+    android:layout_height="100dip"
+    android:scaleType="centerCrop"
+    android:src="@drawable/restaurant_icon"
+    android:background="@null"
+     />
+    
+    <ImageButton
+    android:id="@+id/image_favorites"
+    android:layout_width="100dip"
+    android:layout_height="100dip"
+    android:scaleType="centerCrop"
+    android:src="@drawable/favorites_icon"
+    android:background="@null"
+     />
+    
+    <ImageButton
+    android:id="@+id/image_menu"
+   android:layout_width="100dip"
+    android:layout_height="100dip"
+    android:scaleType="centerCrop"
+    android:src="@drawable/menu_icon"
+     android:background="@null"
+    
+     />
+
+    <ImageButton
+    android:id="@+id/image_map"
+    android:layout_width="100dip"
+    android:layout_height="100dip"
+    android:scaleType="centerCrop"
+    android:src="@drawable/map_icon"
+     android:background="@null"
+     />
+    
+    <ImageButton
+    android:id="@+id/image_reviews"
+    android:layout_width="100dip"
+    android:layout_height="100dip"
+    android:scaleType="centerCrop"
+    android:src="@drawable/reviews_icon"
+    android:background="@null"
+     />
+    
+    <ImageButton
+    android:id="@+id/image_campus"
+    android:layout_width="100dip"
+    android:layout_height="100dip"
+    android:scaleType="centerCrop"
+    android:src="@drawable/aalto_icon"
+    android:background="@null"
+     /> -->
+     
+     <GridView xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/gridview"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:columnWidth="100dp"
+    android:numColumns="auto_fit"
+    android:verticalSpacing="50dp"
+    android:horizontalSpacing="10dp"
+    android:stretchMode="columnWidth"
+    android:gravity="center"
+    android:paddingTop="50dp"
+	/>
+</LinearLayout>

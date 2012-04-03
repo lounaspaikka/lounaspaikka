@@ -12,7 +12,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+		 <activity android:name=".CampusActivity"></activity>
+         <activity android:name=".DashboardActivity"></activity>
+         <activity android:name=".FavoritesActivity"></activity>
+         <activity android:name=".MapActivity"></activity>
+         <activity android:name=".MenuActivity"></activity>
+         <activity android:name=".RestaurantActivity"></activity>
+         <activity android:name=".RestaurantsActivity"></activity>
+         <activity android:name=".ReviewsActivity"></activity>
         </application>
 
 </manifest>
