@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import fi.aalto.lounaspaikka.JsonRetrievalAndTransform.RetrivedDataAndGenerateObject;
+import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 import android.app.Activity;
 import android.content.Intent;
@@ -24,6 +25,7 @@ public class LounaspaikkaActivity extends Activity {
 		RetrivedDataAndGenerateObject data = new  RetrivedDataAndGenerateObject();
 		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 		restaurants=data.getrestaurantarray();
+		ObjectsContainer.restaurants = restaurants;
 		
 		for(int i=0; i<restaurants.size(); i++) {
 			Restaurant res = restaurants.get(i);
