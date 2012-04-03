@@ -15,11 +15,13 @@ public class jsonretrive {
 		 * This is main method to fetch data and storing it to classes
 		 * 
 		 */
-		try {
-			String JsonAsString = Jsonfromurl();
-			JsonAsString.getBytes("UTF-8");
-			jsondata=JsonAsString;
-			System.out.println("breakpointer");
+		try 
+		{
+	        String JsonAsString = Jsonfromurl();
+	    	JsonAsString.getBytes("UTF-8");
+		JsonAsString=JsonAsString.replaceAll("\\r\\n", ""); //removes linechanges
+		JsonAsString=Jsoup.parse(JsonAsString).text();
+         	jsondata=JsonAsString;
 		} catch (UnsupportedEncodingException e) {
 			System.exit(-1);
 			// TODO Auto-generated catch block
