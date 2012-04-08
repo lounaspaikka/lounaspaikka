@@ -8,6 +8,7 @@ public class Restaurant
 	
 	
 	public String name;
+	public int restaurantId;
 	public String url="";
 	public String info="";
 	public String updated="";
