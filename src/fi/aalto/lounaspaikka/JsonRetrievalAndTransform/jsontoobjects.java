@@ -54,7 +54,7 @@ public class jsontoobjects
 			int numberOfcampuses= jsonobject.getAsJsonArray("campus").size();
 			int campuscounter=0;
 			String campus="";
-
+			int restaurantid=0;
 			while (numberOfcampuses>campuscounter) 
 			{ 
 				campus = jsonobject.getAsJsonArray("campus").get(campuscounter).getAsJsonObject().get("name").getAsString();
@@ -65,6 +65,8 @@ public class jsontoobjects
 				{
 					JsonObject restaurantobject = campusobject.getAsJsonArray("restaurant").get(restaurantcounter).getAsJsonObject();
 					Restaurant restaurant = new Restaurant();
+					restaurant.restaurantId=restaurantid;
+					restaurantid++;
 					restaurant.name=restaurantobject.get("name").getAsString();
 					restaurant.url=restaurantobject.get("url").getAsString();
 					restaurant.info=restaurantobject.get("info").getAsString();
