@@ -23,12 +23,9 @@ public class LounaspaikkaActivity extends Activity {
 		setContentView(R.layout.main);
 		
 		RetrivedDataAndGenerateObject data = new  RetrivedDataAndGenerateObject();
-		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
-		restaurants=data.getrestaurantarray();
-		ObjectsContainer.restaurants = restaurants;
-		
-		for(int i=0; i<restaurants.size(); i++) {
-			Restaurant res = restaurants.get(i);
+		data.Storetomem();
+		for(int i=0; i<ObjectsContainer.restaurants.size(); i++) {
+			Restaurant res = ObjectsContainer.restaurants.get(i);
 			System.out.println("Reastaurant: " + res.name);
 		}
 		
@@ -42,10 +39,6 @@ public class LounaspaikkaActivity extends Activity {
 		   }
 
 		}, 2000);
-//		RetrivedDataAndGenerateObject data = new  RetrivedDataAndGenerateObject();
-//		ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
-//		restaurants=data.getrestaurantarray();
-//		
 //		 Intent intent = new Intent(this, DashboardActivity.class);
 //		 this.startActivity(intent);
 
