@@ -2,6 +2,7 @@ package fi.aalto.lounaspaikka.JsonRetrievalAndTransform;
 
 import java.util.ArrayList;
 
+import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 
 public class RetrivedDataAndGenerateObject 
@@ -22,5 +23,10 @@ public class RetrivedDataAndGenerateObject
 		return this.restaurants;	
 	}
 
-
+	public void Storetomem() {
+		ObjectsContainer.restaurants = restaurants;	
+		
+	}
+	
+	
 }
