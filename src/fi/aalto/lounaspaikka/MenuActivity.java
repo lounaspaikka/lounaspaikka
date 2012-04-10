@@ -54,25 +54,25 @@ public class MenuActivity extends Activity{
 		while (menucount>mcounter){
 		if (day==1)
 		{
-		todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.get(mcounter).meal + '\n' ;
+		todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.get(mcounter).meal.replace("\r\n", " ").replace("\n", " ") + '\n' ;
 		}
 		else if (day==2) {
-		todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.get(mcounter).meal + '\n' ;	
+		todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.get(mcounter).meal.replace("\r\n", " ").replace("\n", " ") + '\n' ;	
 		}
 		else if (day==3) {
-			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.tuesday.daysmenu.get(mcounter).meal + '\n' ;	
+			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.tuesday.daysmenu.get(mcounter).meal.replace("\r\n", " ").replace("\n", " ") + '\n' ;	
 		}
 		else if (day==4) {
-			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.wednesday.daysmenu.get(mcounter).meal + '\n' ;	
+			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.wednesday.daysmenu.get(mcounter).meal.replace("\r\n", " ").replace("\n", " ") + '\n' ;	
 		}
 		else if (day==5) {
-			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.thursday.daysmenu.get(mcounter).meal + '\n' ;	
+			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.thursday.daysmenu.get(mcounter).meal.replace("\r\n", " ").replace("\n", " ") + '\n' ;	
 		}
 		else if (day==6) {
-			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.friday.daysmenu.get(mcounter).meal + '\n' ;	
+			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.friday.daysmenu.get(mcounter).meal.replace("\r\n", " ").replace("\n", " ") + '\n' ;	
 		}
 		else if (day==7) {
-			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.saturday.daysmenu.get(mcounter).meal + '\n' ;	
+			todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.saturday.daysmenu.get(mcounter).meal.replace("\r\n", " ").replace("\n", " ") + '\n' ;	
 		}
 		mcounter++;
 		}
