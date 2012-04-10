@@ -21,7 +21,6 @@ public class jsonretrive {
 		{
 	        String JsonAsString = Jsonfromurl();
 	    	JsonAsString.getBytes("UTF-8");
-		JsonAsString=JsonAsString.replaceAll("\\r\\n", ""); //removes linechanges
 		JsonAsString=Jsoup.parse(JsonAsString).text();
          	jsondata=JsonAsString;
 		} catch (UnsupportedEncodingException e) {
