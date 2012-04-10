@@ -23,10 +23,35 @@ public class MenuActivity extends Activity{
 		int restaurantcount= ObjectsContainer.restaurants.size();
 		int rcounter=0;
 		while (restaurantcount>rcounter) {
-		 todaysmenu =todaysmenu + ObjectsContainer.restaurants.get(rcounter).name + '\n';
+		 todaysmenu =todaysmenu + ObjectsContainer.restaurants.get(rcounter).name + "++++++++++++++++++++++++" + '\n';
 		
 		int mcounter=0;
-		while (ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.size()>mcounter){
+		int menucount=0;
+		if (day==1)
+		{
+		menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.size();
+		}
+		else if (day==2) {
+			menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.size();	
+		}
+		else if (day==3) {
+			menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.tuesday.daysmenu.size();	
+		}
+		else if (day==4) {
+			menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.wednesday.daysmenu.size();	
+		}
+		else if (day==5) {
+			menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.thursday.daysmenu.size();	
+		}
+		else if (day==6) {
+			menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.friday.daysmenu.size();	
+		}
+		else if (day==7) {
+			menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.saturday.daysmenu.size();	
+		}
+		
+		
+		while (menucount>mcounter){
 		if (day==1)
 		{
 		todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.get(mcounter).meal + '\n' ;
