@@ -8,7 +8,6 @@ import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 
-
 public class MenuActivity extends Activity
 {
 	@Override
@@ -36,22 +35,28 @@ public class MenuActivity extends Activity
 			{
 				menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.size();
 			}
-			else if (day==2) {
+			else if (day==2) 
+			{
 				menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.size();	
 			}
-			else if (day==3) {
+			else if (day==3) 
+			{
 				menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.tuesday.daysmenu.size();	
 			}
-			else if (day==4) {
+			else if (day==4) 
+			{
 				menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.wednesday.daysmenu.size();	
 			}
-			else if (day==5) {
+			else if (day==5) 
+			{
 				menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.thursday.daysmenu.size();	
 			}
-			else if (day==6) {
+			else if (day==6) 
+			{
 				menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.friday.daysmenu.size();	
 			}
-			else if (day==7) {
+			else if (day==7) 
+			{
 				menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.saturday.daysmenu.size();	
 			}
 			while (menucount>mcounter)
