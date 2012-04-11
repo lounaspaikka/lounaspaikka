@@ -128,7 +128,7 @@ public class jsontoobjects
 		while (meals>count)
 		{
 			Meal meal = new Meal();
-			meal.meal= menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString();
+			meal.meal= menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString().replace("\r\n", "").replace("\n", "");
 			if (day.equals("monday")){
 				restaurant.weeksmenu.monday.daysmenu.add(meal);
 			} else if (day.equals("tuesday")){
