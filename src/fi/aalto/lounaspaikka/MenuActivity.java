@@ -22,9 +22,14 @@ public class MenuActivity extends Activity
 		//sunday is first day saturday 7th
 		int restaurantcount= ObjectsContainer.restaurants.size();
 		int rcounter=0;
+		int openday=day-2;
+		if (openday==-1 ) {
+			openday =6;
+			}
+	
 		while (restaurantcount>rcounter) 
 		{
-			todaysmenu =todaysmenu + '\n'+ '\n'+ ObjectsContainer.restaurants.get(rcounter).name   + '\n' + '\n';
+			todaysmenu =todaysmenu + '\n'+ '\n'+ ObjectsContainer.restaurants.get(rcounter).name + " " + ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).opens + " - " + ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).closes  + '\n' + '\n';
 			int mcounter=0;
 			int menucount=0;
 			if (day==1)
