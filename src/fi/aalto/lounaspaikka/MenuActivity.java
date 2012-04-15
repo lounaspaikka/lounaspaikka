@@ -28,7 +28,16 @@ public class MenuActivity extends Activity
 	
 		while (restaurantcount>rcounter) 
 		{
-			todaysmenu =todaysmenu + '\n'+ '\n'+ ObjectsContainer.restaurants.get(rcounter).name + " " + ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).opens + " - " + ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).closes  + '\n' + '\n';
+			String opens="closed";
+			String closes="";
+			try {
+			 opens  = ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).opens;
+			 closes = ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).closes;
+			} catch (Throwable t) {
+			// maybe warning later on
+			}
+			
+			todaysmenu =todaysmenu + '\n'+ '\n'+ ObjectsContainer.restaurants.get(rcounter).name + " " + opens + " - " + closes  + '\n' + '\n';
 			int mcounter=0;
 			int menucount=0;
 			if (day==1)
