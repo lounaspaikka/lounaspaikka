@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, Lounaspaikka</string>
     <string name="app_name">Lounaspaikka</string>
+    <string name="campusSelect">Select a campus below:</string>
 
 </resources>
