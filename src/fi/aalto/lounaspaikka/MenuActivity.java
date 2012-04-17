@@ -24,92 +24,96 @@ public class MenuActivity extends Activity
 		int openday=day-2;
 		if (openday==-1 ) {
 			openday =6;
-			}
-	
+		}
+
 		while (restaurantcount>rcounter) 
 		{
 			String opens="closed";
 			String closes="";
 			try {
-			 opens  = ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).opens;
-			 closes = ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).closes;
+				closes = ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).closes;
 			} catch (Throwable t) {
-			// maybe warning later on
+				// maybe warning later on
 			}
-			
-			todaysmenu =todaysmenu + '\n'+ '\n'+ ObjectsContainer.restaurants.get(rcounter).name + " " + opens + " - " + closes  + '\n' + '\n';
-			int mcounter=0;
-			int menucount=0;
-			if (day==1)
-			{
-				menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.size();
+			try {
+				opens  = ObjectsContainer.restaurants.get(rcounter).isopen.listOfDays.get(openday).opens;
+			} catch (Throwable t) {
+//add something later on
 			}
-			else if (day==2) 
-			{
-				menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.size();	
-			}
-			else if (day==3) 
-			{
-				menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.tuesday.daysmenu.size();	
-			}
-			else if (day==4) 
-			{
-				menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.wednesday.daysmenu.size();	
-			}
-			else if (day==5) 
-			{
-				menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.thursday.daysmenu.size();	
-			}
-			else if (day==6) 
-			{
-				menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.friday.daysmenu.size();	
-			}
-			else if (day==7) 
-			{
-				menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.saturday.daysmenu.size();	
-			}
-			while (menucount>mcounter)
-			{
+				todaysmenu =todaysmenu + '\n'+ '\n'+ ObjectsContainer.restaurants.get(rcounter).name + " " + opens + " - " + closes  + '\n' + '\n';
+				int mcounter=0;
+				int menucount=0;
 				if (day==1)
 				{
-					todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.get(mcounter).meal + '\n' ;
+					menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.size();
 				}
 				else if (day==2) 
 				{
-					todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.get(mcounter).meal+ '\n' ;	
+					menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.size();	
 				}
 				else if (day==3) 
 				{
-					todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.tuesday.daysmenu.get(mcounter).meal + '\n' ;	
+					menucount =ObjectsContainer.restaurants.get(rcounter).weeksmenu.tuesday.daysmenu.size();	
 				}
 				else if (day==4) 
 				{
-					todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.wednesday.daysmenu.get(mcounter).meal+'\n' ;	
+					menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.wednesday.daysmenu.size();	
 				}
 				else if (day==5) 
 				{
-					todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.thursday.daysmenu.get(mcounter).meal+ '\n' ;	
+					menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.thursday.daysmenu.size();	
 				}
 				else if (day==6) 
 				{
-					todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.friday.daysmenu.get(mcounter).meal+ '\n';	
+					menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.friday.daysmenu.size();	
 				}
 				else if (day==7) 
 				{
-					todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.saturday.daysmenu.get(mcounter).meal+ '\n' ;	
+					menucount = ObjectsContainer.restaurants.get(rcounter).weeksmenu.saturday.daysmenu.size();	
 				}
-				mcounter++;
+				while (menucount>mcounter)
+				{
+					if (day==1)
+					{
+						todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.sunday.daysmenu.get(mcounter).meal + '\n' ;
+					}
+					else if (day==2) 
+					{
+						todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.monday.daysmenu.get(mcounter).meal+ '\n' ;	
+					}
+					else if (day==3) 
+					{
+						todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.tuesday.daysmenu.get(mcounter).meal + '\n' ;	
+					}
+					else if (day==4) 
+					{
+						todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.wednesday.daysmenu.get(mcounter).meal+'\n' ;	
+					}
+					else if (day==5) 
+					{
+						todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.thursday.daysmenu.get(mcounter).meal+ '\n' ;	
+					}
+					else if (day==6) 
+					{
+						todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.friday.daysmenu.get(mcounter).meal+ '\n';	
+					}
+					else if (day==7) 
+					{
+						todaysmenu = todaysmenu +ObjectsContainer.restaurants.get(rcounter).weeksmenu.saturday.daysmenu.get(mcounter).meal+ '\n' ;	
+					}
+					mcounter++;
+				}
+				rcounter++;
 			}
-			rcounter++;
+			TextView tv;
+			tv = (TextView)findViewById(R.id.textView1);
+
+			tv.setMovementMethod(new ScrollingMovementMethod());
+			tv.setText(todaysmenu); 
 		}
-		TextView tv;
-		tv = (TextView)findViewById(R.id.textView1);
-
-		tv.setMovementMethod(new ScrollingMovementMethod());
-		tv.setText(todaysmenu); 
-	}
 
 
 
 
+	
 }
