@@ -8,6 +8,7 @@ import java.util.Vector;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ParseException;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 
@@ -204,7 +206,16 @@ public class MenuActivity extends ListActivity
 		tv.setText(todaysmenu); */
 	
 	}
-
+	
+	 public void onListItemClick(ListView parent, View v, int position,long id) {        	
+//		   Toast.makeText(getApplicationContext(), "You have selected "
+//	                    +(position+1)+"th item",  Toast.LENGTH_SHORT).show();
+		   
+		        Intent intent = new Intent(this, RestaurantActivity.class);
+		        this.startActivity(intent);
+		     
+	}
+	 
 	private class RowData {
 	       protected int mId;
 	       protected int imageNextId;
