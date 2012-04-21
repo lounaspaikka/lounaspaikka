@@ -6,7 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,8 +15,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import fi.aalto.lounaspaikka.JsonRetrievalAndTransform.RetrivedDataAndGenerateObject;
-import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
-import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 import fi.aalto.lounaspaikka.objectfiles.db.RestaurantDbEntity;
 import fi.aalto.lounaspaikka.objectfiles.db.RestaurantsDataSource;
 

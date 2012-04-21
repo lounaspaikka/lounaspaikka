@@ -1,6 +1,5 @@
 package fi.aalto.lounaspaikka;
 
-import fi.aalto.lounaspaikka.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,7 +41,7 @@ public class DashboardActivity extends Activity{
 	        	       DashboardActivity.this.startActivity(intent);
 	        	       break;
 	        	  case 3: /** AlerDialog when click on Exit */
-	        		  intent = new Intent(DashboardActivity.this, MapActivity.class);
+	        		  intent = new Intent(DashboardActivity.this, MyMapActivity.class);
 	        	       DashboardActivity.this.startActivity(intent);
 	        	       break;
 	        	  case 4: /** AlerDialog when click on Exit */

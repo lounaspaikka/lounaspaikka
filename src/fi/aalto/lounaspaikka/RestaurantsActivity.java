@@ -18,10 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-
-
-import fi.aalto.lounaspaikka.R;
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 
 

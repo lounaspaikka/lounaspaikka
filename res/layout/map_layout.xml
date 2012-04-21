@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    
+   <com.google.android.maps.MapView
+	android:id="@+id/mapview"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:layout_below="@+id/map_location_button"
+	android:layout_above="@+id/use_this_location_button"
+	
+	 
+	  android:apiKey="0Y7NKSAnJdEtdEo0jAnAwgLzqy-K86Y-43syyow"
+	android:clickable="true"
+/>
+   
+</LinearLayout>

@@ -1,11 +1,7 @@
 package fi.aalto.lounaspaikka;
 
-import java.util.Vector;
-
 import java.util.List;
-
-import fi.aalto.lounaspaikka.R;
-
+import java.util.Vector;
 
 import android.app.Activity;
 import android.app.ListActivity;

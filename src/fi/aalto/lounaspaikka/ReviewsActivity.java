@@ -1,6 +1,5 @@
 package fi.aalto.lounaspaikka;
 
-import fi.aalto.lounaspaikka.R;
 import android.app.Activity;
 import android.os.Bundle;
 

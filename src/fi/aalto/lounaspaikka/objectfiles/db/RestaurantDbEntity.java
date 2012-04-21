@@ -1,6 +1,5 @@
 package fi.aalto.lounaspaikka.objectfiles.db;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RestaurantDbEntity {

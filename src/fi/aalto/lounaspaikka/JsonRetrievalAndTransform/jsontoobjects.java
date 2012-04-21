@@ -3,11 +3,12 @@ package fi.aalto.lounaspaikka.JsonRetrievalAndTransform;
 
 import java.util.ArrayList;
 
-
+import android.util.Log;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
 import fi.aalto.lounaspaikka.objectfiles.Hoursday;
 import fi.aalto.lounaspaikka.objectfiles.Meal;
 import fi.aalto.lounaspaikka.objectfiles.Restaurant;
@@ -74,8 +75,15 @@ public class jsontoobjects
 					restaurant.updated=updated;
 					JsonObject locationobject = campusobject.getAsJsonArray("restaurant").get(restaurantcounter).getAsJsonObject().get("location").getAsJsonObject();
 					restaurant.location.address=locationobject.get("address").getAsString();
-					restaurant.location.lat=locationobject.get("lat").getAsString();
-					restaurant.location.lng=locationobject.get("lng").getAsString();
+					try {
+						restaurant.location.lat = Double.parseDouble(locationobject.get("lat").getAsString());
+						restaurant.location.lng = Double.parseDouble(locationobject.get("lng").getAsString());
+						
+						
+					} catch (Exception e) {
+						Log.e("log1",e.toString() );
+					}
+					
 					restaurant.location.distance=locationobject.get("distance").getAsString();
 					//here we gather data about restaurant opening and closing hours	
 					JsonObject openinghours =  campusobject.getAsJsonArray("restaurant").get(restaurantcounter).getAsJsonObject().get("opening_hours").getAsJsonObject();

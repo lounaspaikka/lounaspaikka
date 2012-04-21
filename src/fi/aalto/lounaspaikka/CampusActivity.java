@@ -2,8 +2,6 @@ package fi.aalto.lounaspaikka;
 
 import java.util.Vector;
 
-import fi.aalto.lounaspaikka.R;
-import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 
 public class CampusActivity extends Activity{
 	static String nowCampus = "Otaniemi";
