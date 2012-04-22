@@ -85,6 +85,7 @@ public class RestaurantsActivity extends ListActivity {
 //	                    +(position+1)+"th item",  Toast.LENGTH_SHORT).show();
 		   
 		        Intent intent = new Intent(this, RestaurantActivity.class);
+		        intent.putExtra("restName", data.get(position).mTitle);
 		        this.startActivity(intent);
 		     
 	}
