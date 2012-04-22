@@ -86,7 +86,7 @@ public class MyMapActivity extends MapActivity{
 			
 			LocationResult locationResult = new LocationResult(){
 			    @Override
-			    public void gotLocation(Location location){
+			    public void gotLocation(Location location){ 
 			        //Got the location!
 			    	geoPoint = new GeoPoint((int)(location.getLatitude()* 1E6),
 			    			(int)(location.getLongitude()* 1E6) );
