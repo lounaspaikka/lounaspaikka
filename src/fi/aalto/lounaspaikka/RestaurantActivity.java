@@ -8,6 +8,7 @@ import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,8 @@ public class RestaurantActivity extends Activity{
 		setContentView(R.layout.restaurant);
 		ImageView restIcon = (ImageView) findViewById(R.id.restIcon);
 		TextView restInfo = (TextView) findViewById(R.id.restInfo);
+		Button button = (Button) findViewById(R.id.favButton);
+		
 		Intent myIntent = getIntent();
 		String restName = myIntent.getStringExtra("restName");
 		//TO BE CHANGED TO SPECIFIC ICON
