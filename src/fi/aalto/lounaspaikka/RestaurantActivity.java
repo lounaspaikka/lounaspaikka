@@ -23,7 +23,9 @@ public class RestaurantActivity extends Activity{
 		String restName = myIntent.getStringExtra("restName");
 		//TO BE CHANGED TO SPECIFIC ICON
 		restIcon.setImageResource(R.drawable.respic);
+		
 		Restaurant nowRest = new Restaurant();
+		
 		for (int i=0;i<ObjectsContainer.restaurants.size();i++)
 			if (ObjectsContainer.restaurants.get(i).name.equals(restName)){
 				nowRest = ObjectsContainer.restaurants.get(i);

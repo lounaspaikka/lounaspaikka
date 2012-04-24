@@ -17,7 +17,7 @@ import android.util.Log;
 import fi.aalto.lounaspaikka.JsonRetrievalAndTransform.RetrivedDataAndGenerateObject;
 import fi.aalto.lounaspaikka.objectfiles.db.RestaurantDbEntity;
 import fi.aalto.lounaspaikka.objectfiles.db.RestaurantsDataSource;
- 
+
 
 
 public class LounaspaikkaActivity extends Activity {

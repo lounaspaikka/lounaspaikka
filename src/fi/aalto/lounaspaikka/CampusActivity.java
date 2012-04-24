@@ -17,6 +17,7 @@ public class CampusActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.campus);
+		
 		Spinner spinner = (Spinner) findViewById(R.id.campusSpinner);
 		Vector<String> campusName = new Vector<String>();
 		String temp;

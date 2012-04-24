@@ -19,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
- 
 
 
 public class MenuActivity extends ListActivity
@@ -115,7 +114,7 @@ public class MenuActivity extends ListActivity
         			   }
         			   data.add(rd);
         		}
-        	   CustomAdapter adapter = new CustomAdapter(this, R.layout.list, R.id.title, data);
+        	   CustomAdapter adapter = new CustomAdapter(this, R.layout.menu_list, R.id.title, data);
                setListAdapter(adapter);
         	   getListView().setTextFilterEnabled(true);
 		
@@ -211,9 +210,9 @@ public class MenuActivity extends ListActivity
 //		   Toast.makeText(getApplicationContext(), "You have selected "
 //	                    +(position+1)+"th item",  Toast.LENGTH_SHORT).show();
 		   
-		        Intent intent = new Intent(this, RestaurantActivity.class);
-		        intent.putExtra("restName", data.get(position).mTitle);
-		        this.startActivity(intent);
+		        //Intent intent = new Intent(this, RestaurantActivity.class);
+		        //intent.putExtra("restName", data.get(position).mTitle);
+		        //this.startActivity(intent);
 		     
 	}
 	 
@@ -251,7 +250,7 @@ public class MenuActivity extends ListActivity
 		       ImageView i22=null;
 		       RowData rowData= getItem(position);
 		       if(null == convertView){
-		            convertView = mInflater.inflate(R.layout.list, null);
+		            convertView = mInflater.inflate(R.layout.menu_list, null);
 		            holder = new ViewHolder(convertView);
 		            convertView.setTag(holder);
 		       }
@@ -262,13 +261,13 @@ public class MenuActivity extends ListActivity
 	           detail = holder.getdetail();
 	           detail.setText(rowData.mDetail);                                                     
 
-	           i11=holder.getImage();
-	           //i11.setImageResource(imgid[rowData.mId]);
-	           i11.setImageResource(R.drawable.respic);
+//	           i11=holder.getImage();
+//	           //i11.setImageResource(imgid[rowData.mId]);
+//	           i11.setImageResource(R.drawable.respic);
 	           
-	           i22=holder.getImageNext();
-	           //i22.setImageResource(imgid2[rowData.imageNextId]);
-	           i22.setImageResource(R.drawable.arrow);
+//	           i22=holder.getImageNext();
+//	           //i22.setImageResource(imgid2[rowData.imageNextId]);
+//	           i22.setImageResource(R.drawable.arrow);
 	           
 	           return convertView;
 	      	}
@@ -296,18 +295,18 @@ public class MenuActivity extends ListActivity
 		                    }
 		           return detail;
 		         }
-		         public ImageView getImage() {
-		            if(null == i11){
-		                  i11 = (ImageView) mRow.findViewById(R.id.img);
-		             }
-		                return i11;
-		        }
-		         public ImageView getImageNext() {
-		             if(null == i22){
-		                  i22 = (ImageView) mRow.findViewById(R.id.img_arrow);
-		             }
-		                return i22;
-		        }
+//		         public ImageView getImage() {
+//		            if(null == i11){
+//		                  i11 = (ImageView) mRow.findViewById(R.id.img);
+//		             }
+//		                return i11;
+//		        }
+//		         public ImageView getImageNext() {
+//		             if(null == i22){
+//		                  i22 = (ImageView) mRow.findViewById(R.id.img_arrow);
+//		             }
+//		                return i22;
+//		        }
 	        }
 	   }
 

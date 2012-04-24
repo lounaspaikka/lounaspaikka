@@ -17,8 +17,8 @@ public class jsonretrive {
 		 * This is main method to fetch data and storing it to classes
 		 * 
 		 */
-		try  
-		{  
+		try 
+		{
 	        String JsonAsString = Jsonfromurl();
 	    	JsonAsString.getBytes("UTF-8");
 		JsonAsString=Jsoup.parse(JsonAsString).text();
