@@ -74,15 +74,15 @@ public class MyMapActivity extends MapActivity{
 		setContentView(R.layout.map_layout);
 		Restaurant rest = (Restaurant)getIntent().getSerializableExtra("Restaurant");
 		populateLocations(rest);
-
+		final MapView mapView = (MapView) findViewById(R.id.mapview);
+		mapView.setBuiltInZoomControls(true);
+		myLocationOverlay = new MyLocationOverlay(this, mapView);
+		mapView.getOverlays().add(myLocationOverlay);
+		mapView.invalidate();
+		mapView.setSatellite(false);
 		try {
 			
-			final MapView mapView = (MapView) findViewById(R.id.mapview);
-			mapView.setBuiltInZoomControls(true);
-			myLocationOverlay = new MyLocationOverlay(this, mapView);
-			mapView.getOverlays().add(myLocationOverlay);
-			mapView.invalidate();
-			mapView.setSatellite(false);
+
 			
 			LocationResult locationResult = new LocationResult(){
 			    @Override
@@ -135,7 +135,7 @@ public class MyMapActivity extends MapActivity{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			Log.v("map", e.toString());
+			Log.e("map", e.toString());
 		}
 
 	}
