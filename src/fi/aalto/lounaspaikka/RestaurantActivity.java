@@ -88,7 +88,7 @@ public class RestaurantActivity extends Activity{
 		else 
 		{
 			opens=ObjectsContainer.restaurants.get(rnumber).isopen.listOfDays.get(day).opens;
-			closes= ObjectsContainer.restaurants.get(rnumber).isopen.listOfDays.get(day).opens;
+			closes= ObjectsContainer.restaurants.get(rnumber).isopen.listOfDays.get(day).closes;
 			openclose = opens + "-" + closes;
 		}
 		if (day==0) {
