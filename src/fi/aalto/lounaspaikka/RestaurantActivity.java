@@ -112,9 +112,6 @@ public class RestaurantActivity extends Activity{
 		else if (day==6) {
 			openclose= "Sunday: " +openclose+System.getProperty("line.separator"); 	
 		}
-
-
-
 		return openclose;
 	}
 
