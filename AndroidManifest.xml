@@ -23,7 +23,7 @@
          <activity android:name=".RestaurantActivity"></activity>
          <activity android:name=".RestaurantsActivity"></activity>
          <activity android:name=".ReviewsActivity"></activity>
-          <uses-library android:name="com.google.android.maps" />3
+          <uses-library android:name="com.google.android.maps" />
         </application>
 
 </manifest>

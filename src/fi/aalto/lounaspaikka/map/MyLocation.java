@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MyLocation {
     Timer timer1;
@@ -23,8 +24,8 @@ public class MyLocation {
             lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 
         //exceptions will be thrown if provider is not permitted.
-        try{gps_enabled=lm.isProviderEnabled(LocationManager.GPS_PROVIDER);}catch(Exception ex){}
-        try{network_enabled=lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);}catch(Exception ex){}
+        try{gps_enabled=lm.isProviderEnabled(LocationManager.GPS_PROVIDER);}catch(Exception ex){Log.e("log1",ex.toString());}
+        try{network_enabled=lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);}catch(Exception ex){Log.e("log1",ex.toString());}
 
         //don't start listeners if no provider is enabled
         if(!gps_enabled && !network_enabled)

@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
+ 
 
 
 public class MenuActivity extends ListActivity
