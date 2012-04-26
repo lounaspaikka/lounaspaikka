@@ -4,5 +4,5 @@ public class Meal {
 
 public String meal ="";
 public int reviewvalue=0;
-	
+public String restaurantname;
 }
