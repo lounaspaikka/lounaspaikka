@@ -23,7 +23,9 @@
          <activity android:name=".RestaurantActivity"></activity>
          <activity android:name=".RestaurantsActivity"></activity>
          <activity android:name=".ReviewsActivity"></activity>
-          <uses-library android:name="com.google.android.maps" />
+         <activity android:name=".ReviewFilteredMenuActivity"></activity>
+         <activity android:name=".ReviewFiltterActivity"></activity>
+         <uses-library android:name="com.google.android.maps" />
         </application>
 
 </manifest>
