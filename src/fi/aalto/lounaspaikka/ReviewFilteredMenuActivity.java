@@ -17,13 +17,7 @@ public class ReviewFilteredMenuActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.review_menu);
-	//
-		filterArrayObject filterr= new filterArrayObject();
-		filterr.filter="Porsaanleike";
-		filterr.filterweight=50;
-		ObjectsContainer.filter.add(filterr);
-		//		
-		
+
 		checkFoodswithFilter pointfoods = new checkFoodswithFilter();
 		pointfoods.generatereviewdata(); //Porsaanleike
 	
@@ -34,9 +28,9 @@ public class ReviewFilteredMenuActivity extends Activity {
 		String reviewList="";
 		while (mealsize>counter) 
 		{
-			reviewList = reviewList + "Meal" + mealList.get(counter).meal + "\n";
-			reviewList = reviewList + "Restaurant" + mealList.get(counter).restaurantname + "\n";
-			reviewList = reviewList + "Weight" + mealList.get(counter).reviewvalue + "\n";
+			reviewList = reviewList + "Meal: " + mealList.get(counter).meal + "\n";
+			reviewList = reviewList + "Restaurant: " + mealList.get(counter).restaurantname + "\n";
+			reviewList = reviewList + "Weight: " + mealList.get(counter).reviewvalue + "\n";
 			reviewList = reviewList + "\n";
 			counter++;
 		}
