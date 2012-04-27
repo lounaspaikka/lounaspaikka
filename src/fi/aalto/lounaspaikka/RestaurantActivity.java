@@ -3,17 +3,40 @@ package fi.aalto.lounaspaikka;
 
 //import java.util.Calendar;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class RestaurantActivity extends Activity{
+	
+	int rnumber=0;
+	ArrayList<String> fav = new ArrayList<String>();
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,7 +50,8 @@ public class RestaurantActivity extends Activity{
 		//TO BE CHANGED TO SPECIFIC ICON
 		restIcon.setImageResource(R.drawable.respic);
 		Restaurant nowRest = new Restaurant();
-		int rnumber=0;
+		
+		
 		for (int i=0;i<ObjectsContainer.restaurants.size();i++)
 			if (ObjectsContainer.restaurants.get(i).name.equals(restName)){
 				nowRest = ObjectsContainer.restaurants.get(i);
@@ -76,8 +100,18 @@ public class RestaurantActivity extends Activity{
 			else
 				restInfo.append("Sun: "+nowRest.isopen.listOfDays.get(6).opens+" - "+nowRest.isopen.listOfDays.get(6).closes+"\n");
 		}*/
-
-		}
+		button.setOnClickListener(new View.OnClickListener() {
+	    public void onClick(View v) {
+	                 // Perform action on click
+	    	SaveFav(ObjectsContainer.restaurants.get(rnumber).name);
+	    	
+	    	//LoadFav();
+	    	//TextView test = (TextView) findViewById(R.id.restInfo);
+	    	//test.setText(fav.get(2));
+	    }
+		});
+		
+	  }
 	}
 
 	private String opens(int day, int rnumber) //rnumber is restaurant number
@@ -118,5 +152,54 @@ public class RestaurantActivity extends Activity{
 		return openclose;
 	}
 
+	public void SaveFav(String Fav){
+		FileOutputStream fOut = null;
+        OutputStreamWriter osw = null;
 
+        try{
+
+        fOut = openFileOutput("fav.txt", Context.MODE_APPEND);
+
+        osw = new OutputStreamWriter(fOut);
+        
+        osw.write(Fav + "\n");
+        //osw.append("Alvar" + "\n");
+        //osw.append("Main building" + "\n");
+        osw.close();
+        Toast.makeText(getBaseContext(), "Favourite added",Toast.LENGTH_SHORT).show();
+        fOut.close();
+
+        }catch(Exception e){
+
+        e.printStackTrace(System.err);
+
+        }	
+	}
+	public void LoadFav(){
+		FileInputStream fIn = null;
+
+        InputStreamReader isr = null;
+
+        try{
+        fIn = openFileInput("fav.txt");
+        isr = new InputStreamReader(fIn);
+        BufferedReader reader = new BufferedReader(isr);
+        String line = null;
+       
+        while ((line = reader.readLine()) != null) {
+        	fav.add(line);       	
+        }
+        isr.close();
+        Toast.makeText(getBaseContext(), "Favourite Loaded",Toast.LENGTH_SHORT).show();
+        fIn.close();
+        
+        
+        }catch(IOException e){
+
+        e.printStackTrace(System.err);
+
+        }
+	
+	}
+	
 }
