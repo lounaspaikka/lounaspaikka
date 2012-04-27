@@ -17,6 +17,17 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="add filter" />
-        
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Show filters" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="clear filters" />
         
 </LinearLayout>
