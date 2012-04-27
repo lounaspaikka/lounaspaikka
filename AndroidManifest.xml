@@ -25,7 +25,9 @@
          <activity android:name=".ReviewsActivity"></activity>
          <activity android:name=".ReviewFilteredMenuActivity"></activity>
          <activity android:name=".ReviewFiltterActivity"></activity>
+         <activity android:name=".ReviewshowfiltersActivity"></activity>
          <uses-library android:name="com.google.android.maps" />
         </application>
+        
 
 </manifest>
