@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 public class RestaurantActivity extends Activity{
 	
+	static boolean Toggle=true;
 	int rnumber=0;
 	ArrayList<String> fav = new ArrayList<String>();
 	
@@ -41,6 +42,9 @@ public class RestaurantActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.restaurant);
+		
+		LoadFav();
+		
 		ImageView restIcon = (ImageView) findViewById(R.id.restIcon);
 		TextView restInfo = (TextView) findViewById(R.id.restInfo);
 		Button button = (Button) findViewById(R.id.favButton);
@@ -58,7 +62,14 @@ public class RestaurantActivity extends Activity{
 				rnumber=i;
 				break;
 			}
-
+		for (int k=0;k<fav.size();k++)
+		{
+			if (fav.get(k).equals(ObjectsContainer.restaurants.get(rnumber).name))
+			{
+				Toggle = false;
+				button.setText("Remove Favourite");
+			}
+		}
 		if (nowRest.name!=null){
 			restInfo.append("Name: "+nowRest.name+"\n");
 			restInfo.append("Campus: "+nowRest.campus+"\n");
@@ -103,8 +114,52 @@ public class RestaurantActivity extends Activity{
 		button.setOnClickListener(new View.OnClickListener() {
 	    public void onClick(View v) {
 	                 // Perform action on click
-	    	SaveFav(ObjectsContainer.restaurants.get(rnumber).name);
+			
+	    	Button temp = (Button) findViewById(R.id.favButton);
+	    	if (Toggle)
+	    	{
+	    		SaveFav(ObjectsContainer.restaurants.get(rnumber).name);
+	    		
+	    		temp.setText("Remove Favourite");
+	    		Toggle = false;
+	    	}
+	    	else
+	    	{
 	    	
+	    		for (int j=0;j<fav.size();j++)
+	    		{
+	    			if (ObjectsContainer.restaurants.get(rnumber).name.equals(fav.get(j)))
+	    			{
+	    				fav.remove(j);
+	    				FileOutputStream fOut = null;
+	    		        OutputStreamWriter osw = null;
+
+	    		        try{
+
+	    		        fOut = openFileOutput("fav.txt", Context.MODE_PRIVATE);
+
+	    		        osw = new OutputStreamWriter(fOut);
+	    		        
+	    		        for (int k=0; k<fav.size();k++)
+	    		        {
+	    		        	osw.write(fav.get(k) + "\n");
+	    		        //osw.append("Alvar" + "\n");
+	    		        //osw.append("Main building" + "\n");
+	    		        }
+	    		        osw.close();
+	    		        Toast.makeText(getBaseContext(), "Favourite removed",Toast.LENGTH_SHORT).show();
+	    		        fOut.close();
+
+	    		        }catch(Exception e){
+
+	    		        e.printStackTrace(System.err);
+
+	    		        }	
+	    			}
+	    		}
+	    		temp.setText("Add Favourite");
+	    		Toggle = true;
+	    	}
 	    	//LoadFav();
 	    	//TextView test = (TextView) findViewById(R.id.restInfo);
 	    	//test.setText(fav.get(2));
@@ -190,7 +245,7 @@ public class RestaurantActivity extends Activity{
         	fav.add(line);       	
         }
         isr.close();
-        Toast.makeText(getBaseContext(), "Favourite Loaded",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getBaseContext(), "Favourite Loaded",Toast.LENGTH_SHORT).show();
         fIn.close();
         
         
