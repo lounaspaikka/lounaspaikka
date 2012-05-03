@@ -17,10 +17,6 @@ public class ReviewFiltterActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reviewfilteradd);
-
-	
-	
-		
 		Button show = (Button) findViewById(R.id.addweight);
 	
 		show.setOnClickListener(new View.OnClickListener() 
@@ -31,8 +27,6 @@ public class ReviewFiltterActivity extends Activity {
 				EditText weightE = (EditText) findViewById(R.id.weightField);
 			String  weightname= weightnameE.getText().toString();
 			String weights = weightE.getText().toString();
-			int jee=0;
-			jee=jee;
 			try
 			{
 
