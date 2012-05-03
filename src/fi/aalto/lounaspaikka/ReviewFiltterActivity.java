@@ -43,10 +43,9 @@ public class ReviewFiltterActivity extends Activity {
 				filterr.filterweight=weight;
 				ObjectsContainer.filter.add(filterr);
 				Toast.makeText(getApplicationContext(), "Weight has been added", Toast.LENGTH_LONG).show();
-			}
+			} else {
 			Toast.makeText(getApplicationContext(), "Wrong input", Toast.LENGTH_LONG).show();
-			
-			
+			}
 			
 			}
 			catch(NumberFormatException explanation){
