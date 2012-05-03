@@ -167,7 +167,7 @@ public class LounaspaikkaActivity extends Activity {
 				json=json+line;      	
 			}
 			isr.close();
-			Toast.makeText(getBaseContext(), "Filters loaded Loaded",Toast.LENGTH_SHORT).show();
+			//Toast.makeText(getBaseContext(), "Filters loaded Loaded",Toast.LENGTH_SHORT).show();
 			fIn.close();
 
 
