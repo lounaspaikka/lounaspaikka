@@ -132,7 +132,8 @@ public class checkFoodswithFilter {
 		int filtercounter=0;
 		while (filtercount>filtercounter) 
 		{
-			if (meal.meal.contains(filters.get(filtercounter).filter)) 
+			
+			if (meal.meal.toLowerCase().contains(filters.get(filtercounter).filter.toLowerCase())) 
 			{
 				meal.reviewvalue = meal.reviewvalue + filters.get(filtercounter).filterweight;
 				if (meal.reviewvalue>100) {

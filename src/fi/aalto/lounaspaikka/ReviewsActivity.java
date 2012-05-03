@@ -1,7 +1,13 @@
 package fi.aalto.lounaspaikka;
 
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+
+import com.google.gson.Gson;
+
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -56,11 +62,29 @@ public class ReviewsActivity extends Activity{
 					ObjectsContainer.filter.remove(0);
 					counter++;
 				}
+				clearstorage();
 				Toast.makeText(getApplicationContext(), "Filters cleared ", Toast.LENGTH_LONG).show();
 			}
 		});
 
 
-
 	}
+
+	private void clearstorage() {
+		FileOutputStream fOut = null;
+        OutputStreamWriter osw = null;
+
+        try{
+
+        fOut = openFileOutput("filterlounaspaikka.txt", Context.MODE_WORLD_WRITEABLE);
+        osw = new OutputStreamWriter(fOut);
+        osw.write("");
+        osw.close();
+        fOut.close();
+        }catch(Exception e){
+
+        e.printStackTrace(System.err);
+        }
+        }	
+
 }
