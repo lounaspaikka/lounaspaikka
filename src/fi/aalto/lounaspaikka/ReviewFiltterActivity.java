@@ -3,10 +3,16 @@ package fi.aalto.lounaspaikka;
 
 
 
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+
+import com.google.gson.Gson;
+
 import fi.aalto.lounaspaikka.filters.filterArrayObject;
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +42,7 @@ public class ReviewFiltterActivity extends Activity {
 				filterr.filter=weightname;
 				filterr.filterweight=weight;
 				ObjectsContainer.filter.add(filterr);
+				savearray();
 				Toast.makeText(getApplicationContext(), "Weight has been added", Toast.LENGTH_LONG).show();
 			} else {
 			Toast.makeText(getApplicationContext(), "Wrong input", Toast.LENGTH_LONG).show();
@@ -46,15 +53,45 @@ public class ReviewFiltterActivity extends Activity {
 
 				Toast.makeText(getApplicationContext(), "Weight wasn't integer", Toast.LENGTH_LONG).show();
 			}
-			
-			
+
 			}
+
+			private void savearray() {
+				Gson gson = new Gson();
+				String arraytostring="";
+				String json= gson.toJson(ObjectsContainer.filter);
+				savetofileasstring(json);
+			}
+			
+				private void savetofileasstring(String arraytostring){
+				FileOutputStream fOut = null;
+		        OutputStreamWriter osw = null;
+
+		        try{
+
+		        fOut = openFileOutput("filterlounaspaikka.txt", Context.MODE_WORLD_WRITEABLE);
+		        osw = new OutputStreamWriter(fOut);
+		        osw.write(arraytostring);
+		        osw.close();
+		        fOut.close();
+		        }catch(Exception e){
+
+		        e.printStackTrace(System.err);
+		        }
+		        }	
+				
+			
 		});
 	
 	
 	
 	
 	}
+
+
+
+
+
 }
 
 
