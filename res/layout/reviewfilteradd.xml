@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/weightText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="What do you want to weight" />
+
+    <EditText
+        android:id="@+id/WeightnameField"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/weightText"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/weightField"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/WeightnameField"
+        android:layout_marginTop="57dp"
+        android:ems="10"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/WeightnameText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/WeightnameField"
+        android:layout_marginTop="36dp"
+        android:text="Weight number between -100 and 100" />
+
+    <Button
+        android:id="@+id/addweight"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/weightField"
+        android:layout_marginTop="51dp"
+        android:text="Add Weight" />
+
+</RelativeLayout>

@@ -7,8 +7,8 @@ public class Location
 	 */
 
 	public String address;
-	public String lat;
-	public String lng;
+	public double lat;
+	public double lng;
 	public String distance;
 	
 }

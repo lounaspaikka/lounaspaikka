@@ -14,7 +14,7 @@ public class GoogleTranslater {
 		String output = input;
 		
 		GoogleAPI.setHttpReferrer("http://localhost");
-        GoogleAPI.setKey("KEY");
+        GoogleAPI.setKey("KEY_HERE");
 		try {
 			output = Translate.DEFAULT.execute(input, Language.FINNISH, Language.ENGLISH);
 		} catch (GoogleAPIException e) {

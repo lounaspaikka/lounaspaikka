@@ -1,6 +1,7 @@
 package fi.aalto.lounaspaikka;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -17,10 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-
-
-import fi.aalto.lounaspaikka.R;
+import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 
 
 public class RestaurantsActivity extends ListActivity {
@@ -29,7 +27,9 @@ public class RestaurantsActivity extends ListActivity {
 	private Vector<RowData> data;
 	RowData rd;
 
-	static final String[] title = new String[] { "Tuas-talo", 
+	ArrayList<String> title = new ArrayList<String>();
+	ArrayList<String> detail = new ArrayList<String>();
+	/*static final String[] title = new String[] { "Tuas-talo", 
 		"Alvari","Elissa ",
 		"Cantina","Elissa ",
 		"Elissa","Alvari ",
@@ -38,30 +38,38 @@ public class RestaurantsActivity extends ListActivity {
 	static final String[] detail = new String[] { "1h 37m Shipping: $10.007m Shipping: $10.00","1h 39m Shipping: Free",
 		"58m 6s Shipping: $10.00","59m 30s Shipping: $10.95",
 		"58m 6s Shipping: $10.00","59m 30s Shipping: $10.95",
-		"58m 6s Shipping: $10.00","59m 30s Shipping: $10.95"};
+		"58m 6s Shipping: $10.00","59m 30s Shipping: $10.95"};*/
 
-	private Integer[] imgid = {
+	/*private Integer[] imgid = {
 			 R.drawable.respic,R.drawable.respic,R.drawable.respic,
 			  R.drawable.respic,  R.drawable.respic,  R.drawable.respic,  R.drawable.respic,  R.drawable.respic
 	};
 	private Integer[] imgid2 = {
 			 R.drawable.arrow, R.drawable.arrow, R.drawable.arrow, R.drawable.arrow,
 			 R.drawable.arrow, R.drawable.arrow, R.drawable.arrow, R.drawable.arrow
-	};
+	};*/
+	
 	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restaurants);
-		
+
+        for (int i=0;i<ObjectsContainer.restaurants.size();i++){
+        	if (ObjectsContainer.restaurants.get(i).campus.equals(CampusActivity.nowCampus)){
+        		title.add(ObjectsContainer.restaurants.get(i).name);
+        		detail.add(ObjectsContainer.restaurants.get(i).location.address);
+        	}
+        }
+        
         mInflater = (LayoutInflater) getSystemService(
         		Activity.LAYOUT_INFLATER_SERVICE);
         		data = new Vector<RowData>();
         		
-        		for(int i=0;i<title.length;i++){
+        		for(int i=0;i<title.size();i++){
         			try {
-        			 	rd = new RowData(i, title[i],detail[i], i);
+        			 	rd = new RowData(i, title.get(i),detail.get(i), i);
         			    }
         			catch (ParseException e) {
         			    e.printStackTrace();
@@ -77,6 +85,7 @@ public class RestaurantsActivity extends ListActivity {
 //	                    +(position+1)+"th item",  Toast.LENGTH_SHORT).show();
 		   
 		        Intent intent = new Intent(this, RestaurantActivity.class);
+		        intent.putExtra("restName", data.get(position).mTitle);
 		        this.startActivity(intent);
 		     
 	}
@@ -127,10 +136,12 @@ public class RestaurantsActivity extends ListActivity {
 	           detail.setText(rowData.mDetail);                                                     
 
 	           i11=holder.getImage();
-	           i11.setImageResource(imgid[rowData.mId]);
+	           //i11.setImageResource(imgid[rowData.mId]);
+	           i11.setImageResource(R.drawable.respic);
 	           
 	           i22=holder.getImageNext();
-	           i22.setImageResource(imgid2[rowData.imageNextId]);
+	           //i22.setImageResource(imgid2[rowData.imageNextId]);
+	           i22.setImageResource(R.drawable.arrow);
 	           
 	           return convertView;
 	      	}
