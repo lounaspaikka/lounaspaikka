@@ -7,28 +7,28 @@
     android:background="@drawable/background">
     
     
-         <Button
+     <Button
         android:id="@+id/button1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Weighted menu" />
+        android:text="Weighted Menu" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="add filter" />
+        android:text="Add Filter" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Show filters" />
+        android:text="Show Filters" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="clear filters" />
+        android:text="Clear Filters" />
         
 </LinearLayout>

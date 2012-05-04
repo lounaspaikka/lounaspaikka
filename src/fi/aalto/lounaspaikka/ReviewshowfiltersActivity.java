@@ -24,6 +24,7 @@ public class ReviewshowfiltersActivity extends Activity {
 		
 		TextView tv;
 		tv = (TextView)findViewById(R.id.textView1);
+		tv.setTextColor(0xFF000000);
 		tv.setMovementMethod(new ScrollingMovementMethod());
 		tv.setText(filtertxt); 
 	}
