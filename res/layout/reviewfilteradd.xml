@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/weightText"
@@ -10,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="What do you want to weight" />
+        android:text="Enter Type of Food to add weight" />
 
     <EditText
         android:id="@+id/WeightnameField"

@@ -25,7 +25,8 @@ public class CampusActivity extends Activity{
 	private RadioGroup radGroup;
     private RadioButton radButton;
 	
-	static String nowCampus;
+	static String nowCampus="Otaniemi";
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class CampusActivity extends Activity{
 			}
 		}
 		String match;
-		LoadCampus();
+		//LoadCampus();
 		for(int j=0; j<radGroup.getChildCount(); j++) {
             RadioButton loadbtn = (RadioButton)radGroup.getChildAt(j);
             match = (String)loadbtn.getText();
