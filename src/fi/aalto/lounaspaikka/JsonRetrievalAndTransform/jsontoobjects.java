@@ -4,6 +4,7 @@ package fi.aalto.lounaspaikka.JsonRetrievalAndTransform;
 import java.util.ArrayList;
 
 import android.util.Log;
+import android.view.animation.Transformation;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -12,7 +13,7 @@ import com.google.gson.JsonParser;
 import fi.aalto.lounaspaikka.objectfiles.Hoursday;
 import fi.aalto.lounaspaikka.objectfiles.Meal;
 import fi.aalto.lounaspaikka.objectfiles.Restaurant;
-
+import fi.aalto.lounaspaikka.translate.GoogleTranslater;
 
 
 
@@ -103,6 +104,7 @@ public class jsontoobjects
 					restaurant = getmenutorestaurant(menuoftheweek, restaurant, "friday" );
 					restaurant = getmenutorestaurant(menuoftheweek, restaurant, "saturday" );
 					restaurant = getmenutorestaurant(menuoftheweek, restaurant, "sunday" );
+					
 					//adds restaurant to array
 					restaurants.add(restaurant);   
 					restaurantcounter++;
@@ -137,6 +139,8 @@ public class jsontoobjects
 		{
 			Meal meal = new Meal();
 			meal.meal= menuoftheweek.get(day).getAsJsonObject().getAsJsonArray("meal").get(count).getAsString().replace("\r\n", "").replace("\n", "");
+			
+			
 			if (day.equals("monday")){
 				restaurant.weeksmenu.monday.daysmenu.add(meal);
 			} else if (day.equals("tuesday")){

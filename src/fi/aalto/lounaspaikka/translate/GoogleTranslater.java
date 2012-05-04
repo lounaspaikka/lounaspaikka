@@ -1,26 +1,31 @@
 package fi.aalto.lounaspaikka.translate;
 
-import com.google.api.GoogleAPI;
-import com.google.api.GoogleAPIException;
-import com.google.api.translate.Language;
-import com.google.api.translate.Translate;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 
 public class GoogleTranslater {
 
 	public static String Translate(String input) {
-		if (input.length() == 0){
-			return "";
-		}
+		String baseUrl = "http://translate.patana.info/translate.php?target=en&source=fi&string=";
+		String url = baseUrl + java.net.URLEncoder.encode(input);
+		
 		String output = input;
 		
-		GoogleAPI.setHttpReferrer("http://localhost");
-        GoogleAPI.setKey("KEY_HERE");
-		try {
-			output = Translate.DEFAULT.execute(input, Language.FINNISH, Language.ENGLISH);
-		} catch (GoogleAPIException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return output;
+        try {
+                HttpClient client = new DefaultHttpClient();
+                HttpGet request = new HttpGet(url);
+                // Get the response
+                ResponseHandler<String> responseHandler = new BasicResponseHandler();
+                output = client.execute(request, responseHandler);
+        }
+        catch (Exception e) {
+            System.out.println("Translation error occured."+e.toString());
+        }
+        return output;
 	}
+
 }
