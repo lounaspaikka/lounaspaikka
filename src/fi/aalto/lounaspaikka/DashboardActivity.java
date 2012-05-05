@@ -1,10 +1,16 @@
 package fi.aalto.lounaspaikka;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
@@ -15,16 +21,11 @@ public class DashboardActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dashboard);
 		 
-//		Bundle data = getIntent().getExtras();
-//		MyParcelable student = data.getParcelable("parse");
-//		
-		
 		GridView gridview = (GridView) findViewById(R.id.gridview);
 	    gridview.setAdapter(new ImageAdapter(this));
 
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	           // Toast.makeText(SecondPageActivity.this, "" + position, Toast.LENGTH_SHORT).show();
 	        	Intent intent=null;
 	        	switch(position){
 
@@ -56,5 +57,64 @@ public class DashboardActivity extends Activity{
 	        }
 	    });
 		
+	}
+	public class ImageAdapter extends BaseAdapter{
+		private Context mContext;
+
+	    public ImageAdapter(Context c) {
+	        mContext = c;
+	    }
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return mThumbIds.length;
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+
+			View v;
+			if(convertView==null){
+				LayoutInflater li = getLayoutInflater();
+				v = li.inflate(R.layout.icon, null);
+				TextView tv = (TextView)v.findViewById(R.id.icon_text);
+				tv.setText(iconsStrings[position]);
+				
+				ImageView iv = (ImageView)v.findViewById(R.id.icon_image);
+				iv.setImageResource(mThumbIds[position]);
+
+			}
+			else
+			{
+				v = convertView;
+			}
+			return v;
+	    }
+		 private Integer[] mThumbIds = {
+		            R.drawable.restaurant_icon, R.drawable.favorites_icon,
+		            R.drawable.menu_icon, R.drawable.map_icon,
+		            R.drawable.reviews_icon, R.drawable.aalto_icon,
+		          
+		    };
+		 private String[] iconsStrings = {
+		            "Restaurants", "Favorites",
+		            "Todays Menu", "Map",
+		            "Reviews", "Choose Campus",
+		          
+		    };
+
 	}
 }

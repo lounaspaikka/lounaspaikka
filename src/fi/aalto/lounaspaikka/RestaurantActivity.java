@@ -22,6 +22,8 @@ import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -50,10 +52,14 @@ public class RestaurantActivity extends Activity{
 		Button button = (Button) findViewById(R.id.favButton);
 		
 		Intent myIntent = getIntent();
+		Bundle extras = myIntent.getExtras();
 		String restName = myIntent.getStringExtra("restName");
-		//TO BE CHANGED TO SPECIFIC ICON
-		restIcon.setImageResource(R.drawable.respic);
-		Restaurant nowRest = new Restaurant();
+		
+		int image = extras.getInt("resImageId");
+		//restIcon.setImageResource(image);
+		 restIcon.setImageBitmap(DecodeBitmaps.decodeSampledBitmapFromResource(getResources(), image, 300, 150));
+		
+         Restaurant nowRest = new Restaurant();
 		
 		
 		for (int i=0;i<ObjectsContainer.restaurants.size();i++)
@@ -71,9 +77,10 @@ public class RestaurantActivity extends Activity{
 			}
 		}
 		if (nowRest.name!=null){
-			restInfo.append("Name: "+nowRest.name+"\n");
+			restInfo.append("Restaurant: "+nowRest.name+"\n");
 			restInfo.append("Campus: "+nowRest.campus+"\n");
 			restInfo.append("Address: "+nowRest.location.address+"\n");
+			restInfo.append("\n");
 			restInfo.append("Opening hours: \n");
 			int opensc=0;
 			int openlistsize=nowRest.isopen.listOfDays.size();
@@ -82,35 +89,14 @@ public class RestaurantActivity extends Activity{
 				opensc++;
 			}
 
-			/*	if (nowRest.isopen.listOfDays.get(0).opens.equals(""))
-				restInfo.append("Mon: no data\n");
-			else
-				restInfo.append("Mon: "+nowRest.isopen.listOfDays.get(0).opens+" - "+nowRest.isopen.listOfDays.get(0).closes+"\n");
-			if (nowRest.isopen.listOfDays.get(0).opens.equals(""))
-				restInfo.append("Tue: no data\n");
-			else
-				restInfo.append("Tue: "+nowRest.isopen.listOfDays.get(1).opens+" - "+nowRest.isopen.listOfDays.get(1).closes+"\n");
-			if (nowRest.isopen.listOfDays.get(0).opens.equals(""))
-				restInfo.append("Wed: no data\n");
-			else
-				restInfo.append("Wed: "+nowRest.isopen.listOfDays.get(2).opens+" - "+nowRest.isopen.listOfDays.get(2).closes+"\n");
-			if (nowRest.isopen.listOfDays.get(0).opens.equals(""))
-				restInfo.append("Thu: no data\n");
-			else
-				restInfo.append("Thu: "+nowRest.isopen.listOfDays.get(3).opens+" - "+nowRest.isopen.listOfDays.get(3).closes+"\n");
-			if (nowRest.isopen.listOfDays.get(0).opens.equals(""))
-				restInfo.append("Fri: no data\n");
-			else
-				restInfo.append("Fri: "+nowRest.isopen.listOfDays.get(4).opens+" - "+nowRest.isopen.listOfDays.get(4).closes+"\n");
-			if (nowRest.isopen.listOfDays.get(0).opens.equals(""))
-				restInfo.append("Sat: no data\n");
-			else
-				restInfo.append("Sat: "+nowRest.isopen.listOfDays.get(5).opens+" - "+nowRest.isopen.listOfDays.get(5).closes+"\n");
-			if (nowRest.isopen.listOfDays.get(0).opens.equals(""))
-				restInfo.append("Sun: no data\n");
-			else
-				restInfo.append("Sun: "+nowRest.isopen.listOfDays.get(6).opens+" - "+nowRest.isopen.listOfDays.get(6).closes+"\n");
-		}*/
+			Button mapButton = (Button) findViewById(R.id.mapButton);
+			mapButton.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View view)
+				{
+					Intent myIntent = new Intent(view.getContext(), MyMapActivity.class);
+					startActivityForResult(myIntent,0);
+				}
+			});
 		button.setOnClickListener(new View.OnClickListener() {
 	    public void onClick(View v) {
 	                 // Perform action on click
@@ -256,5 +242,4 @@ public class RestaurantActivity extends Activity{
         }
 	
 	}
-	
 }
