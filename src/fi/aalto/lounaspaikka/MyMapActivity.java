@@ -1,9 +1,11 @@
 package fi.aalto.lounaspaikka;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
@@ -27,8 +29,8 @@ public class MyMapActivity extends MapActivity{
 	private MyLocationOverlay myLocationOverlay;
 	private GeoPoint geoPoint;
 	HashMap<String,GeoPoint> restarauntLocations = new HashMap<String, GeoPoint>();
-	
-	
+	ArrayList<String> restNames;
+	ArrayList<GeoPoint> restLocations;
 	
 	@Override
 	protected boolean isRouteDisplayed() {
@@ -36,32 +38,43 @@ public class MyMapActivity extends MapActivity{
 		return false;
 		
 	}
+	
 	/**
 	 * Adding restaurants location to the list
 	 * @param Restaurant rest - if not null, it will be the only one on the map
 	 */
 	private void populateLocations(Restaurant rest){
+		restNames = new ArrayList<String>();
+		restLocations = new ArrayList<GeoPoint>();
+		
 		if (rest!= null)
 		{	 
 			 GeoPoint location = new GeoPoint((int)(rest.location.lat* 1E6),
 		    			(int)(rest.location.lng* 1E6) );
-		    	  restarauntLocations.put("Dipoli",location);
+		    	  restNames.add(rest.name);
+		    	  restLocations.add(location);
 		}
 		
     	  GeoPoint location = new GeoPoint((int)(60.185137* 1E6),
     			(int)(24.832149* 1E6) );
-    	  restarauntLocations.put("Dipoli",location);
+    	  restNames.add("Teekkariravintolat");
+    	  restLocations.add(location);
+    	  
     	  location = new GeoPoint((int)(60.18702* 1E6),
       			(int)(24.821034* 1E6) );
-    	  restarauntLocations.put("T-building",location);
+    	  restNames.add("Teekkariravintolat");
+    	  restLocations.add(location);
     	  
     	  location = new GeoPoint((int)(60.187148* 1E6),
         			(int)(24.818920* 1E6) );
-      	  restarauntLocations.put("TUAS",location);
-    	  
+    	  restNames.add("TUAS-talo");
+    	  restLocations.add(location);
+     
       	 location = new GeoPoint((int)(60.185873* 1E6),
      			(int)(24.827535* 1E6) );
-      	 restarauntLocations.put("Main",location);
+      	restNames.add("Alvari");
+      	restLocations.add(location);
+      	 
      	  
 	}
 	
@@ -99,6 +112,8 @@ public class MyMapActivity extends MapActivity{
 					Drawable myImage = res.getDrawable(R.drawable.restaurant_map);
 					MyItemizedOverlay restMarker = new MyItemizedOverlay(myImage,
 							getApplicationContext());
+					restMarker.setMapActivity(MyMapActivity.this);
+				 
 		 
 					//Can't get it from the list of restaurants, incorrect location from the API
 					/*
@@ -113,19 +128,13 @@ public class MyMapActivity extends MapActivity{
 					}*/
 					
 					//Iterating through items
-					Iterator iterator =  restarauntLocations.entrySet().iterator();
-				    while (iterator.hasNext()) {
-				        Map.Entry pairs = (Map.Entry)iterator.next();;
-				        OverlayItem item = new OverlayItem((GeoPoint)pairs.getValue(),(String) pairs.getKey(),"snippet");
+					for(int i=0;i<restNames.size();i++){
+						OverlayItem item = new OverlayItem(restLocations.get(i), restNames.get(i),"snippet");
 						item.setMarker(myImage);
 						restMarker.addOverlay(item);
-				        iterator.remove(); // avoids a ConcurrentModificationException
-				    }
+					}
 					
-				 
-					
-					mapView.getOverlays().add(restMarker);
-					
+					mapView.getOverlays().add(restMarker);	
 			    
 			    }
 			};
@@ -139,7 +148,15 @@ public class MyMapActivity extends MapActivity{
 		}
 
 	}
-	
+	/**
+	 * Show RestaurauntActivity for selected restaurant
+	 * @param name
+	 */
+	public void showRestaurantInfo(String name){
+	    Intent intent = new Intent(this, RestaurantActivity.class);
+	    intent.putExtra("restName",  name);
+	    this.startActivity(intent);
+	}
 	 
 	@Override
 	protected void onPause() {

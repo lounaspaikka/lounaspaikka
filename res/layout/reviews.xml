@@ -3,34 +3,58 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center_vertical|top"
+<<<<<<< HEAD
     android:orientation="vertical" >
      
+=======
+    android:orientation="vertical" 
+    android:background="@drawable/background">
+    
+    
+>>>>>>> fec31f685511dc4aaa5f4539907a696c636abb3a
      <Button
         android:id="@+id/button1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="Weighted menu" 
         />
+=======
+        android:text="Weighted Menu" />
+>>>>>>> fec31f685511dc4aaa5f4539907a696c636abb3a
 
     <Button
         android:id="@+id/button2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="add filter"
         />
+=======
+        android:text="Add Filter" />
+>>>>>>> fec31f685511dc4aaa5f4539907a696c636abb3a
 
     <Button
         android:id="@+id/button3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="Show filters"
         />
+=======
+        android:text="Show Filters" />
+>>>>>>> fec31f685511dc4aaa5f4539907a696c636abb3a
 
     <Button
         android:id="@+id/button4"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="clear filters"
 		/>
 
+=======
+        android:text="Clear Filters" />
+        
+>>>>>>> fec31f685511dc4aaa5f4539907a696c636abb3a
 </LinearLayout>

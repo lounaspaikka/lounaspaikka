@@ -3,10 +3,16 @@ package fi.aalto.lounaspaikka;
 
 
 
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+
+import com.google.gson.Gson;
+
 import fi.aalto.lounaspaikka.filters.filterArrayObject;
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,10 +23,6 @@ public class ReviewFiltterActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reviewfilteradd);
-
-	
-	
-		
 		Button show = (Button) findViewById(R.id.addweight);
 	
 		show.setOnClickListener(new View.OnClickListener() 
@@ -31,8 +33,6 @@ public class ReviewFiltterActivity extends Activity {
 				EditText weightE = (EditText) findViewById(R.id.weightField);
 			String  weightname= weightnameE.getText().toString();
 			String weights = weightE.getText().toString();
-			int jee=0;
-			jee=jee;
 			try
 			{
 
@@ -42,26 +42,56 @@ public class ReviewFiltterActivity extends Activity {
 				filterr.filter=weightname;
 				filterr.filterweight=weight;
 				ObjectsContainer.filter.add(filterr);
+				savearray();
 				Toast.makeText(getApplicationContext(), "Weight has been added", Toast.LENGTH_LONG).show();
-			}
+			} else {
 			Toast.makeText(getApplicationContext(), "Wrong input", Toast.LENGTH_LONG).show();
-			
-			
+			}
 			
 			}
 			catch(NumberFormatException explanation){
 
 				Toast.makeText(getApplicationContext(), "Weight wasn't integer", Toast.LENGTH_LONG).show();
 			}
-			
-			
+
 			}
+
+			private void savearray() {
+				Gson gson = new Gson();
+				String arraytostring="";
+				String json= gson.toJson(ObjectsContainer.filter);
+				savetofileasstring(json);
+			}
+			
+				private void savetofileasstring(String arraytostring){
+				FileOutputStream fOut = null;
+		        OutputStreamWriter osw = null;
+
+		        try{
+
+		        fOut = openFileOutput("filterlounaspaikka.txt", Context.MODE_WORLD_WRITEABLE);
+		        osw = new OutputStreamWriter(fOut);
+		        osw.write(arraytostring);
+		        osw.close();
+		        fOut.close();
+		        }catch(Exception e){
+
+		        e.printStackTrace(System.err);
+		        }
+		        }	
+				
+			
 		});
 	
 	
 	
 	
 	}
+
+
+
+
+
 }
 
 
