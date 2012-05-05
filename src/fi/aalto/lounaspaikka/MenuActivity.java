@@ -69,11 +69,25 @@ public class MenuActivity extends Activity{
 
 		}
 		public void loadRestaurantData(int day){
+			int openday=day-2;
+			if (openday==-1 ) {
+				openday =6;
+				}
+			
 			for (int i=0;i<ObjectsContainer.restaurants.size();i++){
-	        	if (ObjectsContainer.restaurants.get(i).campus.equals(CampusActivity.nowCampus)){
+				String opens="closed";
+				String closes="";
+				try {
+				 opens  = ObjectsContainer.restaurants.get(i).isopen.listOfDays.get(openday).opens + "-";
+				 closes = ObjectsContainer.restaurants.get(i).isopen.listOfDays.get(openday).closes;
+				} catch (Throwable t) {
+				// maybe warning later on
+				}
+				
+				if (ObjectsContainer.restaurants.get(i).campus.equals(CampusActivity.nowCampus)){
 	        		if (day==1)
 					{
-	        			restaurantNames.add(ObjectsContainer.restaurants.get(i).name);
+	        			restaurantNames.add(ObjectsContainer.restaurants.get(i).name + " "+ opens+closes );
 	        			ArrayList<String> mealTmp = new ArrayList<String>();
 	        			int mealsSize = ObjectsContainer.restaurants.get(i).weeksmenu.sunday.daysmenu.size();
 	        			if( mealsSize == 0){
