@@ -77,7 +77,7 @@ public class MenuActivity extends Activity{
 	        			ArrayList<String> mealTmp = new ArrayList<String>();
 	        			int mealsSize = ObjectsContainer.restaurants.get(i).weeksmenu.sunday.daysmenu.size();
 	        			if( mealsSize == 0){
-	        				mealTmp.add("");
+	        				mealTmp.add("No menu for today. Restaurant is closed.");
         					meals.add(mealTmp);
 	        			}
 	        			else {
@@ -94,7 +94,7 @@ public class MenuActivity extends Activity{
 						restaurantNames.add(ObjectsContainer.restaurants.get(i).name);
 						int mealsSize = ObjectsContainer.restaurants.get(i).weeksmenu.monday.daysmenu.size();
 						if(mealsSize == 0){
-							mealTmp.add("");
+							mealTmp.add("No menu for today. Restaurant is closed.");
         					meals.add(mealTmp);
 						}else{
 							for (int j=0;j<mealsSize;j++){
@@ -109,7 +109,7 @@ public class MenuActivity extends Activity{
 						restaurantNames.add(ObjectsContainer.restaurants.get(i).name);
 						int mealsSize = ObjectsContainer.restaurants.get(i).weeksmenu.tuesday.daysmenu.size();
 						if( mealsSize == 0){
-							mealTmp.add("");
+							mealTmp.add("No menu for today. Restaurant is closed.");
         					meals.add(mealTmp);
 						}else{
 							for (int j=0;j<mealsSize;j++){
@@ -124,7 +124,7 @@ public class MenuActivity extends Activity{
 						restaurantNames.add(ObjectsContainer.restaurants.get(i).name);
 						int mealsSize = ObjectsContainer.restaurants.get(i).weeksmenu.wednesday.daysmenu.size();
 						if( mealsSize== 0) {
-							mealTmp.add("");
+							mealTmp.add("No menu for today. Restaurant is closed.");
         					meals.add(mealTmp);
 						}else {
 							for (int j=0;j<mealsSize;j++){
@@ -139,7 +139,7 @@ public class MenuActivity extends Activity{
 						restaurantNames.add(ObjectsContainer.restaurants.get(i).name);
 						int mealsSize = ObjectsContainer.restaurants.get(i).weeksmenu.thursday.daysmenu.size();
 						if(mealsSize == 0) {
-							mealTmp.add("");
+							mealTmp.add("No menu for today. Restaurant is closed.");
         					meals.add(mealTmp);
 						}else {
 							for (int j=0;j<mealsSize;j++){
@@ -154,7 +154,7 @@ public class MenuActivity extends Activity{
 						restaurantNames.add(ObjectsContainer.restaurants.get(i).name);
 						int mealsSize = ObjectsContainer.restaurants.get(i).weeksmenu.friday.daysmenu.size();
 						if( mealsSize == 0){
-							mealTmp.add("");
+							mealTmp.add("No menu for today. Restaurant is closed.");
         					meals.add(mealTmp);
 						}
 					    else {
@@ -171,7 +171,7 @@ public class MenuActivity extends Activity{
 						restaurantNames.add(ObjectsContainer.restaurants.get(i).name);
 						int mealsSize = ObjectsContainer.restaurants.get(i).weeksmenu.saturday.daysmenu.size();
 						if(mealsSize ==0){
-							mealTmp.add("");
+							mealTmp.add("No menu for today. Restaurant is closed.");
         					meals.add(mealTmp);
 						}else {
 							for (int j=0;j<mealsSize;j++){
