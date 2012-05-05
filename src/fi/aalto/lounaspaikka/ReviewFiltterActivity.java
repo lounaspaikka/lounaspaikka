@@ -44,6 +44,8 @@ public class ReviewFiltterActivity extends Activity {
 				ObjectsContainer.filter.add(filterr);
 				savearray();
 				Toast.makeText(getApplicationContext(), "Weight has been added", Toast.LENGTH_LONG).show();
+				weightnameE.setText("");
+				weightE.setText("");
 			} else {
 			Toast.makeText(getApplicationContext(), "Wrong input", Toast.LENGTH_LONG).show();
 			}
@@ -83,11 +85,43 @@ public class ReviewFiltterActivity extends Activity {
 			
 		});
 	
-	
+		Button clearfilters = (Button) findViewById(R.id.clearfilter);
+		clearfilters.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View view)
+			{
+				int filtersize= ObjectsContainer.filter.size();
+				int counter=0;
+				while (filtersize>counter) {
+					ObjectsContainer.filter.remove(0);
+					counter++;
+				}
+				clearstorage();
+				Toast.makeText(getApplicationContext(), "Filters cleared ", Toast.LENGTH_LONG).show();
+			}
+		});
 	
 	
 	}
 
+
+
+	private void clearstorage() {
+		FileOutputStream fOut = null;
+        OutputStreamWriter osw = null;
+
+        try{
+
+        fOut = openFileOutput("filterlounaspaikka.txt", Context.MODE_WORLD_WRITEABLE);
+        osw = new OutputStreamWriter(fOut);
+        osw.write("");
+        osw.close();
+        fOut.close();
+        }catch(Exception e){
+
+        e.printStackTrace(System.err);
+        }
+        }	
 
 
 

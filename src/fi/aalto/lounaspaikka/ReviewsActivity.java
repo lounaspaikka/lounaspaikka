@@ -7,84 +7,54 @@ import com.google.gson.Gson;
 
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 import android.app.Activity;
+import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
 import android.widget.Toast;
 
-public class ReviewsActivity extends Activity{
+public class ReviewsActivity extends TabActivity{
+	TabHost.TabSpec spec1, spec2, spec3;
+	Intent myIntent1, myIntent2, myIntent3;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reviews);
+		Resources res = getResources();
+		TabHost tabHost = getTabHost();
+		myIntent1 = new Intent().setClass(this, ReviewFilteredMenuActivity.class);
+		spec1 = tabHost.newTabSpec("filteredMenu")
+				.setIndicator("Filtered Menu",res.getDrawable(R.drawable.ic_tab_equalizer))
+				.setContent(myIntent1);
+	    tabHost.addTab(spec1);
 
-
-		Button review = (Button) findViewById(R.id.button1);
-		review.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View view)
-			{
-				Intent myIntent = new Intent(view.getContext(), ReviewFilteredMenuActivity.class);
-				startActivityForResult(myIntent,0);
-			}
-		});
-
-		Button settings = (Button) findViewById(R.id.button2);
-		settings.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View view)
-			{
-				Intent myIntent = new Intent(view.getContext(), ReviewFiltterActivity.class);
-				startActivityForResult(myIntent,0);
-			}
-		});
-
-		Button showfilters = (Button) findViewById(R.id.button3);
-		showfilters.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View view)
-			{
-				Intent myIntent = new Intent(view.getContext(), ReviewshowfiltersActivity.class);
-				startActivityForResult(myIntent,0);
-			}
-		});
-
-		Button clearfilters = (Button) findViewById(R.id.button4);
-		clearfilters.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View view)
-			{
-				int filtersize= ObjectsContainer.filter.size();
-				int counter=0;
-				while (filtersize>counter) {
-					ObjectsContainer.filter.remove(0);
-					counter++;
-				}
-				clearstorage();
-				Toast.makeText(getApplicationContext(), "Filters cleared ", Toast.LENGTH_LONG).show();
-			}
-		});
-
-
+	    myIntent2 = new Intent().setClass(this, ReviewFiltterActivity.class);
+		spec2 = tabHost.newTabSpec("filter")
+				.setIndicator("Filter Settings",res.getDrawable(R.drawable.ic_tab_filter))
+				.setContent(myIntent2);
+		tabHost.addTab(spec2);
+	    
+		myIntent3 = new Intent().setClass(this, ReviewshowfiltersActivity.class);
+		spec3 = tabHost.newTabSpec("showFilter")
+				.setIndicator("Show Filters",res.getDrawable(R.drawable.ic_tab_tiles))
+				.setContent(myIntent3);
+		tabHost.addTab(spec3);
+		tabHost.setCurrentTab(1);
+		
+		tabHost.setOnTabChangedListener(new OnTabChangeListener(){
+			@Override
+			public void onTabChanged(String tabId) {
+			    if(spec1.getTag().equals(tabId)) {
+			    	ReviewFilteredMenuActivity.showFilteredMenu();
+			    }
+			    else if(spec3.getTag().equals(tabId)) {
+			    	ReviewshowfiltersActivity.showFilter();
+			    }
+			}});
 	}
-
-	private void clearstorage() {
-		FileOutputStream fOut = null;
-        OutputStreamWriter osw = null;
-
-        try{
-
-        fOut = openFileOutput("filterlounaspaikka.txt", Context.MODE_WORLD_WRITEABLE);
-        osw = new OutputStreamWriter(fOut);
-        osw.write("");
-        osw.close();
-        fOut.close();
-        }catch(Exception e){
-
-        e.printStackTrace(System.err);
-        }
-        }	
-
 }

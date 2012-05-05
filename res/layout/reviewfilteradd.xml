@@ -12,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:textColor="#000000"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="26dp"
         android:textAppearance="?android:attr/textAppearanceMedium" 
         android:text="Add Weight to Food Type" />
@@ -68,5 +68,17 @@
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:text="Add Weight" />
+
+    <Button
+        android:id="@+id/clearfilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/addweight"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Clear Filter" />
 
 </RelativeLayout>

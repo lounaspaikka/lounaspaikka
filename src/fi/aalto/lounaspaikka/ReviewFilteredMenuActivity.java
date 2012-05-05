@@ -14,10 +14,17 @@ import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 public class ReviewFilteredMenuActivity extends Activity {
+	static TextView tv;
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.review_menu);
-
+		
+		tv = (TextView)findViewById(R.id.textView1);
+		tv.setTextColor(0xFF000000);
+		tv.setMovementMethod(new ScrollingMovementMethod());
+		
+	}
+	protected static void showFilteredMenu(){
 		checkFoodswithFilter pointfoods = new checkFoodswithFilter();
 		pointfoods.generatereviewdata(); //Porsaanleike
 	
@@ -34,10 +41,6 @@ public class ReviewFilteredMenuActivity extends Activity {
 			reviewList = reviewList + "\n";
 			counter++;
 		}
-		TextView tv;
-		tv = (TextView)findViewById(R.id.textView1);
-		tv.setTextColor(0xFF000000);
-		tv.setMovementMethod(new ScrollingMovementMethod());
 		tv.setText(reviewList); 
 	}
 }
