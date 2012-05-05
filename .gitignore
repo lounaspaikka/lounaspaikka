@@ -15,10 +15,8 @@ gen/
 # Local configuration file (sdk path, etc)
 local.properties
 
-<<<<<<< HEAD
-#mac files
-.DS_Store
-=======
 #translation apikey sharing blocked
 src/fi/aalto/lounaspaikka/translate
->>>>>>> fec31f685511dc4aaa5f4539907a696c636abb3a
+
+#mac files
+.DS_Store
