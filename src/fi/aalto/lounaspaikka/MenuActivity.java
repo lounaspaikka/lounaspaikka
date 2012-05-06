@@ -46,7 +46,7 @@ public class MenuActivity extends Activity{
 			setContentView(R.layout.menu);
 			
 			Calendar today = Calendar.getInstance();
-			int day = today.get(Calendar.DAY_OF_WEEK);
+			int day = today.get(Calendar.DAY_OF_WEEK)+3;
 
 			int openday=day-2;
 			if (openday==-1 ) {
@@ -97,8 +97,9 @@ public class MenuActivity extends Activity{
 	        			}
 	        			else {
 	        				for (int j=0;j<mealsSize;j++){
-	        					mealTmp.add(GoogleTranslater.Translate(ObjectsContainer.restaurants.get(i).weeksmenu.sunday.daysmenu.get(j).meal));
+	        					mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.sunday.daysmenu.get(j).meal);
 	        				}
+	        				GoogleTranslater.TranslateArray(mealTmp);
 	        				meals.add(mealTmp);
 	        			}
 	        			
@@ -113,8 +114,9 @@ public class MenuActivity extends Activity{
         					meals.add(mealTmp);
 						}else{
 							for (int j=0;j<mealsSize;j++){
-								mealTmp.add(GoogleTranslater.Translate(ObjectsContainer.restaurants.get(i).weeksmenu.monday.daysmenu.get(j).meal));
+								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.monday.daysmenu.get(j).meal);
 		        			}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}
@@ -128,8 +130,9 @@ public class MenuActivity extends Activity{
         					meals.add(mealTmp);
 						}else{
 							for (int j=0;j<mealsSize;j++){
-								mealTmp.add(GoogleTranslater.Translate(ObjectsContainer.restaurants.get(i).weeksmenu.tuesday.daysmenu.get(j).meal));
+								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.tuesday.daysmenu.get(j).meal);
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}
@@ -143,8 +146,9 @@ public class MenuActivity extends Activity{
         					meals.add(mealTmp);
 						}else {
 							for (int j=0;j<mealsSize;j++){
-								mealTmp.add(GoogleTranslater.Translate(ObjectsContainer.restaurants.get(i).weeksmenu.wednesday.daysmenu.get(j).meal));
+								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.wednesday.daysmenu.get(j).meal);
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}
@@ -158,8 +162,9 @@ public class MenuActivity extends Activity{
         					meals.add(mealTmp);
 						}else {
 							for (int j=0;j<mealsSize;j++){
-								mealTmp.add(GoogleTranslater.Translate(ObjectsContainer.restaurants.get(i).weeksmenu.thursday.daysmenu.get(j).meal));
+								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.thursday.daysmenu.get(j).meal);
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}
@@ -174,9 +179,10 @@ public class MenuActivity extends Activity{
 						}
 					    else {
 							for (int j=0;j<mealsSize;j++){
-								mealTmp.add(GoogleTranslater.Translate(ObjectsContainer.restaurants.get(i).weeksmenu.friday.daysmenu.get(j).meal));
+								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.friday.daysmenu.get(j).meal);
 		        											
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);	
 						}
 					}
@@ -190,8 +196,9 @@ public class MenuActivity extends Activity{
         					meals.add(mealTmp);
 						}else {
 							for (int j=0;j<mealsSize;j++){
-								mealTmp.add(GoogleTranslater.Translate(ObjectsContainer.restaurants.get(i).weeksmenu.saturday.daysmenu.get(j).meal));
+								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.saturday.daysmenu.get(j).meal);
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}

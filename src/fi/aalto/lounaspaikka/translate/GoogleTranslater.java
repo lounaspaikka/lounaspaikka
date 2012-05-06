@@ -1,5 +1,7 @@
 package fi.aalto.lounaspaikka.translate;
 
+import java.util.ArrayList;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
@@ -26,6 +28,22 @@ public class GoogleTranslater {
             System.out.println("Translation error occured."+e.toString());
         }
         return output;
+	}
+
+	public static void TranslateArray(ArrayList<String> mealTmp) {
+		// TODO Auto-generated method stub
+		String input = "";
+		for (String s : mealTmp)
+		{
+		    input += s + "|";
+		}
+		String output =Translate(input);
+		String[] outputParts= output.split("[|]");
+		
+		mealTmp.clear();
+		for (int i=0;i<outputParts.length;i++){
+			mealTmp.add(outputParts[i]);
+		}
 	}
 
 }
