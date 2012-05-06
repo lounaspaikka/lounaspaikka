@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ReviewsActivity extends TabActivity{
@@ -27,7 +28,8 @@ public class ReviewsActivity extends TabActivity{
 		setContentView(R.layout.reviews);
 		Resources res = getResources();
 		TabHost tabHost = getTabHost();
-		myIntent1 = new Intent().setClass(this, ReviewFilteredMenuActivity.class);
+		
+	    myIntent1 = new Intent().setClass(this, ReviewFilteredMenuActivity.class);
 		spec1 = tabHost.newTabSpec("filteredMenu")
 				.setIndicator("Filtered Menu",res.getDrawable(R.drawable.ic_tab_equalizer))
 				.setContent(myIntent1);
