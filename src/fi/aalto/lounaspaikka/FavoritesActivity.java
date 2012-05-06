@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import fi.aalto.lounaspaikka.translate.GoogleTranslater;
 
 public class FavoritesActivity extends Activity{
 	public final static String ITEM_TITLE = "List with favorites";
@@ -94,6 +95,7 @@ public class FavoritesActivity extends Activity{
 	        				for (int j=0;j<mealsSize;j++){
 	        					mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.sunday.daysmenu.get(j).meal);
 	        				}
+	        				GoogleTranslater.TranslateArray(mealTmp);
 	        				meals.add(mealTmp);
 	        			 }
 	        			
@@ -110,6 +112,7 @@ public class FavoritesActivity extends Activity{
 							for (int j=0;j<mealsSize;j++){
 								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.monday.daysmenu.get(j).meal);
 		        			}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}
@@ -125,6 +128,7 @@ public class FavoritesActivity extends Activity{
 							for (int j=0;j<mealsSize;j++){
 								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.tuesday.daysmenu.get(j).meal);
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}
@@ -140,6 +144,7 @@ public class FavoritesActivity extends Activity{
 							for (int j=0;j<mealsSize;j++){
 								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.wednesday.daysmenu.get(j).meal);
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}
@@ -155,6 +160,7 @@ public class FavoritesActivity extends Activity{
 							for (int j=0;j<mealsSize;j++){
 								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.thursday.daysmenu.get(j).meal);
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}
@@ -169,9 +175,9 @@ public class FavoritesActivity extends Activity{
 						}
 					    else {
 							for (int j=0;j<mealsSize;j++){
-								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.friday.daysmenu.get(j).meal);
-		        											
+								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.friday.daysmenu.get(j).meal);					
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);	
 						}
 						
@@ -188,6 +194,7 @@ public class FavoritesActivity extends Activity{
 							for (int j=0;j<mealsSize;j++){
 								mealTmp.add(ObjectsContainer.restaurants.get(i).weeksmenu.saturday.daysmenu.get(j).meal);
 							}
+							GoogleTranslater.TranslateArray(mealTmp);
 							meals.add(mealTmp);
 						}
 					}

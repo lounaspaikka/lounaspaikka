@@ -46,7 +46,7 @@ public class MenuActivity extends Activity{
 			setContentView(R.layout.menu);
 			
 			Calendar today = Calendar.getInstance();
-			int day = today.get(Calendar.DAY_OF_WEEK)+3;
+			int day = today.get(Calendar.DAY_OF_WEEK);
 
 			int openday=day-2;
 			if (openday==-1 ) {
