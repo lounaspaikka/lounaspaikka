@@ -53,6 +53,7 @@ public class MyMapActivity extends MapActivity{
 		    			(int)(rest.location.lng* 1E6) );
 		    	  restNames.add(rest.name);
 		    	  restLocations.add(location);
+		    	  return;
 		}
 		
     	  GeoPoint location = new GeoPoint((int)(60.185137* 1E6),

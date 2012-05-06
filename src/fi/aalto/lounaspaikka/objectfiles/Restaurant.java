@@ -1,6 +1,11 @@
 package fi.aalto.lounaspaikka.objectfiles;
 
-public class Restaurant 
+import java.io.Serializable;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Restaurant implements   Serializable
 {
 /**
  * Basic Restaurant info as string. Detailed data in the objects
@@ -8,14 +13,15 @@ public class Restaurant
 	
 	
 	public String name;
-	public int restaurantId;
-	public String url="";
-	public String info="";
-	public String updated="";
-	public String campus;
-	public Menu weeksmenu = new Menu();
+	public transient int restaurantId;
+	public transient String url="";
+	public transient String info="";
+	public transient String updated="";
+	public transient String campus;
+	public transient Menu weeksmenu = new Menu();
 	public Location location = new Location();
-	public Hours isopen = new Hours();
-
+	public transient Hours isopen = new Hours();
+	
+ 
 }
 

@@ -60,7 +60,7 @@ public class RestaurantActivity extends Activity{
 		//restIcon.setImageResource(image);
 		 restIcon.setImageBitmap(DecodeBitmaps.decodeSampledBitmapFromResource(getResources(), image, 300, 150));
 		
-         Restaurant nowRest = new Restaurant();
+        Restaurant nowRest = new Restaurant();
 		
 		
 		for (int i=0;i<ObjectsContainer.restaurants.size();i++)
@@ -89,12 +89,14 @@ public class RestaurantActivity extends Activity{
 				restInfo.append(opens(opensc,rnumber));
 				opensc++;
 			}
-
+			final Restaurant rest = nowRest;
 			Button mapButton = (Button) findViewById(R.id.mapButton);
 			mapButton.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View view)
 				{
+					
 					Intent myIntent = new Intent(view.getContext(), MyMapActivity.class);
+					myIntent.putExtra("Restaurant", rest);
 					startActivityForResult(myIntent,0);
 				}
 			});
