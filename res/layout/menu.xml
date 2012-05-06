@@ -22,6 +22,6 @@
 			android:listSelector="@drawable/list_selector"
 			android:layout_width="300dp"
 			android:layout_height="wrap_content" 
-			android:background="@color/white"/>
+			android:background="@drawable/list_selector"/>
 		</RelativeLayout>
 </LinearLayout>
