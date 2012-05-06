@@ -53,10 +53,10 @@ public class LounaspaikkaActivity extends Activity {
 				Intent intent = new Intent(LounaspaikkaActivity.this, DashboardActivity.class);
 				// intent.putExtra("parse", new MyParcelable("1","Mike","6"));
 				LounaspaikkaActivity.this.startActivity(intent);
+				finish();
 			}
 
 		}, 2000);
-
 	}
 
 	/**
