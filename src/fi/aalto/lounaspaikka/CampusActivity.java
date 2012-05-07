@@ -25,7 +25,7 @@ public class CampusActivity extends Activity{
 	private RadioGroup radGroup;
     private RadioButton radButton;
 	
-	static String nowCampus="Otaniemi";
+	public static String nowCampus="Otaniemi";
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
