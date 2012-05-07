@@ -12,6 +12,7 @@ public class ParseAndImportFilters {
 		JsonParser jsonParser = new JsonParser();
 		int arraysize =  jsonParser.parse(json).getAsJsonArray().size();
 		int counter=0;
+		ObjectsContainer.filter.clear();
 		while (arraysize>counter) {
 			JsonObject filter=jsonParser.parse(json).getAsJsonArray().get(counter).getAsJsonObject();
 		filterArrayObject filterO = new filterArrayObject();

@@ -35,15 +35,25 @@ public class ReviewFiltterActivity extends Activity {
 			String weights = weightE.getText().toString();
 			try
 			{
-
+			boolean exist=false;
 			int weight=	Integer.parseInt(weights);
 			if (weight>=(-100) && weight<=100 && weightname!="") {
 				filterArrayObject filterr= new filterArrayObject();
 				filterr.filter=weightname;
 				filterr.filterweight=weight;
-				ObjectsContainer.filter.add(filterr);
+				for (int i=0; i<ObjectsContainer.filter.size();i++){
+					if (ObjectsContainer.filter.get(i).filter.equals(weightname)){
+						ObjectsContainer.filter.set(i, filterr);
+						exist=true;
+						Toast.makeText(getApplicationContext(), "Weight has been updated", Toast.LENGTH_LONG).show();
+						break;
+					}
+				}
+				if (!exist){
+					ObjectsContainer.filter.add(filterr);
+					Toast.makeText(getApplicationContext(), "Weight has been added", Toast.LENGTH_LONG).show();
+				}
 				savearray();
-				Toast.makeText(getApplicationContext(), "Weight has been added", Toast.LENGTH_LONG).show();
 				weightnameE.setText("");
 				weightE.setText("");
 			} else {
@@ -103,8 +113,6 @@ public class ReviewFiltterActivity extends Activity {
 	
 	
 	}
-
-
 
 	private void clearstorage() {
 		FileOutputStream fOut = null;
