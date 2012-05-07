@@ -3,6 +3,7 @@ package fi.aalto.lounaspaikka.filters;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import fi.aalto.lounaspaikka.CampusActivity;
 import fi.aalto.lounaspaikka.objectfiles.Meal;
 import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 
@@ -57,6 +58,7 @@ public class checkFoodswithFilter {
 		int counter=0;
 		while (restaurantc>counter) 
 		{
+			 if (ObjectsContainer.restaurants.get(counter).campus.equals(CampusActivity.nowCampus)){
 			String restaurantname = ObjectsContainer.restaurants.get(counter).name;
 			int mealcount=getdaysmenusize(counter,day);
 			int innercount=0;
@@ -69,6 +71,7 @@ public class checkFoodswithFilter {
 				foodarray.add(meal);
 			innercount++;
 			}
+			 }
 			counter++;
 		}
 	}
