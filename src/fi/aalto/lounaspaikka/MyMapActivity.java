@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -22,6 +23,7 @@ import com.google.android.maps.OverlayItem;
 import fi.aalto.lounaspaikka.map.MyItemizedOverlay;
 import fi.aalto.lounaspaikka.map.MyLocation;
 import fi.aalto.lounaspaikka.map.MyLocation.LocationResult;
+import fi.aalto.lounaspaikka.objectfiles.ObjectsContainer;
 import fi.aalto.lounaspaikka.objectfiles.Restaurant;
 
 public class MyMapActivity extends MapActivity{
@@ -154,9 +156,15 @@ public class MyMapActivity extends MapActivity{
 	 * @param name
 	 */
 	public void showRestaurantInfo(String name){
-	    Intent intent = new Intent(this, RestaurantActivity.class);
-	    intent.putExtra("restName",  name);
-	    this.startActivity(intent);
+		Restaurant choice = null;
+		for (Restaurant R : ObjectsContainer.restaurants)
+			if (R.name.equals(name)){
+				choice = R;
+				break;
+			}
+		String info = new String();
+		info+="Restaurant: "+name+"\n"+"Campus: "+choice.campus+"\n"+"Address: "+choice.location.address+"\n";
+		Toast.makeText(getBaseContext(), info, Toast.LENGTH_SHORT).show();
 	}
 	 
 	@Override
